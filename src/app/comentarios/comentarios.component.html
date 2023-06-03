@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <link rel="stylesheet" href="./comentarios.component.css" />
+    <title>Comentarios</title>
+  </head>
+
+  <body>
+    <nav id="Navegacion">
+      <app-navbar></app-navbar>
+    </nav>
+    <main class="comentarios">
+      <div class="container" *ngIf="mostrarUltimosComentarios">
+        <h2>Últimos comentarios</h2>
+
+        <ul class="list-group" *ngIf="comentarios.length > 0">
+          <li class="list-group-item" *ngFor="let comentario of comentarios">
+            {{ comentario.texto }}
+          </li>
+        </ul>
+      </div>
+
+      <div class="container" *ngIf="!mostrarUltimosComentarios">
+        <form (ngSubmit)="agregarComentario()" class="formulario-comentario">
+          <div class="form-group">
+            <label for="nuevoComentario">Nuevo comentario:</label>
+            <input
+              type="text"
+              id="nuevoComentario"
+              class="form-control"
+              [(ngModel)]="nuevoComentarioTexto"
+              name="nuevoComentario"
+              required
+            />
+          </div>
+
+          <button type="submit" class="btn btn-primary boton-comentario">
+            Agregar comentario
+          </button>
+        </form>
+      </div>
+
+      <form
+        (ngSubmit)="agregarComentario()"
+        *ngIf="mostrarUltimosComentarios"
+        class="formulario-comentario"
+      >
+        <div class="form-group">
+          <label for="nuevoComentario">Nuevo comentario:</label>
+          <input
+            type="text"
+            id="nuevoComentario"
+            class="form-control"
+            [(ngModel)]="nuevoComentarioTexto"
+            name="nuevoComentario"
+            required
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary boton-comentario">
+          Agregar comentario
+        </button>
+      </form>
+    </main>
+  </body>
+</html>

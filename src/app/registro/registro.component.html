@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Source+Sans+Pro:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./registro.component.css" />
+    <title>Dr.Luzio</title>
+  </head>
+
+  <body>
+    <main class="target">
+      <section class="registro">
+        <div class="dataUsuario">
+          <p class="namepage">Dr. Luzio</p>
+          <h1>Registro</h1>
+          <form
+            id="form-registro"
+            (ngSubmit)="registrarUsuario()"
+            [formGroup]="registrationForm"
+            novalidate
+          >
+            <label for="correo">Correo electrónico</label>
+            <input
+              type="email"
+              id="correo"
+              class="form-control"
+              formControlName="correo"
+              placeholder="example@estudiantes.uv.mx"
+              required
+            />
+            <label for="contrasena">Contraseña</label>
+            <input
+              type="password"
+              id="contrasena"
+              class="form-control"
+              formControlName="contrasena"
+              required
+              minlength="8"
+              maxlength="10"
+            />
+            <label for="nombre">Nombre (s)</label>
+            <input
+              type="text"
+              id="nombre"
+              class="form-control"
+              formControlName="nombre"
+              required
+            />
+
+            <label for="apellido">Apellido (s)</label>
+            <input
+              type="text"
+              id="apellido"
+              class="form-control"
+              formControlName="apellido"
+              required
+            />
+
+            <label for="sexo">Sexo</label>
+            <select
+              id="sexo"
+              class="form-control"
+              formControlName="sexo"
+              required
+            >
+              <option value="">Seleccionar</option>
+              <option value="M">Masculino</option>
+              <option value="F">Femenino</option>
+            </select>
+
+            <label for="edad">Edad</label>
+            <input
+              type="number"
+              id="edad"
+              class="form-control"
+              formControlName="edad"
+              required
+            />
+
+            <label for="estatura">Estatura (cm)</label>
+            <input
+              type="number"
+              id="estatura"
+              class="form-control"
+              formControlName="estatura"
+              required
+            />
+
+            <label for="peso">Peso (kg)</label>
+            <input
+              type="number"
+              id="peso"
+              class="form-control"
+              formControlName="peso"
+              required
+            />
+
+            <div class="boton">
+              <button type="submit" class="btn-registo">Registrar</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+    <div class="imagen-container"></div>
+    <div class="footer">
+      <button class="btn-social">
+        <a href="https://www.facebook.com/LuzioUV/" target="_blank">
+          <img
+            class="social-icon"
+            src="../../assets/facebook.jpg"
+            alt="Facebook"
+          />
+        </a>
+        <span class="social-text">Luzio_oficial</span>
+      </button>
+      <div>
+        <button class="btn-social">
+          <a href="https://www.instagram.com/luzio_oficial/" target="_blank">
+            <img
+              class="social-icon"
+              src="../../assets/instagram.png"
+              alt="Instagram"
+            />
+          </a>
+          <span class="social-text">Luzio UV</span>
+        </button>
+      </div>
+      <div>
+        <button class="btn-social">
+          <a href="https://twitter.com/LuzioUV" target="_blank">
+            <img
+              class="social-icon"
+              src="../../assets/twitter.jpg"
+              alt="Twitter"
+            />
+          </a>
+          <span class="social-text">Luzio UV</span>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

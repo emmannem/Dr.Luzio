@@ -1,0 +1,204 @@
+body {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-family: "Josefin Sans", "Source Sans Pro", sans-serif;
+}
+
+main {
+  position: absolute;
+  width: 594px;
+  height: 950px;
+  left: 79px;
+  top: 38px;
+
+  border-radius: 1rem;
+  background-color: white;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  overflow: hidden;
+}
+main .registro {
+  position: absolute;
+  width: 470px;
+  height: 811px;
+  left: 62px;
+  top: 60px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.dataUsuario {
+  padding: 2rem 0;
+  width: 100%;
+}
+
+input:invalid {
+  border: 1px solid rgb(92, 92, 92);
+}
+
+input:invalid:required {
+  border: 2px solid black;
+}
+
+input:valid {
+  border: 1px solid black;
+}
+
+select:invalid {
+  border: 1px solid rgb(92, 92, 92);
+}
+
+select:invalid:required {
+  border: 2px solid black;
+}
+
+select:valid {
+  border: 2px solid black;
+}
+.namepage {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 50px;
+
+  position: absolute;
+  width: 300px;
+  height: 64px;
+  left: 100px;
+  top: -20px;
+}
+.namepage {
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 64px;
+
+  color: #000000;
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+h1 {
+  position: absolute;
+  width: 222px;
+  height: 50px;
+  left: 127px;
+  top: 30px;
+
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 350;
+  font-size: 35px;
+  line-height: 40px;
+  text-align: center;
+
+  color: #000000;
+}
+
+#form-registro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px 0px;
+  gap: 10px;
+}
+
+label {
+  text-align: left;
+  font-size: 15px;
+}
+
+input {
+  box-sizing: border-box;
+  padding: 10px;
+  border-radius: 4px;
+  border: solid;
+  border-width: 1px;
+  width: 100%;
+}
+
+.boton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  width: 190px;
+  height: 50px;
+
+  background-color: var(--verde-btn);
+  border-radius: 4px;
+
+  flex: none;
+  order: 7;
+  flex-grow: 0;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: none;
+  background-color: transparent;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  padding: 0px;
+  position: absolute;
+  width: 500px;
+  height: 30px;
+  left: 800px;
+  top: 900px;
+}
+
+.social-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.social-text {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  color: #ffffff;
+}
+
+.imagen-container {
+  position: absolute;
+  width: 632px;
+  height: 999px;
+  left: 717px;
+  top: 0px;
+  background: linear-gradient(
+      90deg,
+      #0150af 0%,
+      rgba(1, 86, 188, 0.8173) 8.49%,
+      rgba(0, 96, 210, 0.49) 100%
+    ),
+    url(../../assets/LuzioRegistro.jpg), #0150af;
+  background-size: cover;
+  background-position: left;
+  background-repeat: no-repeat;
+}

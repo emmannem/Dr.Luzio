@@ -1,0 +1,12 @@
+/*
+@import "~bootstrap/dist/css/bootstrap.min.css";*/
+:root {
+  --verde-btn: #95d86a;
+  --blue-bg: #0150af;
+  --withe: #ffffff;
+}
+
+body {
+  margin: 0;
+  background-color: var(--blue-bg);
+}
