@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegistroService } from './registro.service';
+import { Usuario } from './usuario.model';
 
 @Component({
   selector: 'app-registro',
@@ -20,11 +21,14 @@ export class RegistroComponent implements OnInit {
   ngOnInit() {
     this.registrationForm = this.formBuilder.group({
       correo: ['', [Validators.required, Validators.email]],
-      contrasena: ['', [Validators.required, Validators.minLength(8)]],
+      contrasena: [
+        '',
+        [Validators.required, Validators.minLength(8), Validators.maxLength(8)],
+      ],
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
       sexo: ['', Validators.required],
-      edad: ['', [Validators.required, Validators.min(1)]],
+      edad: ['', [Validators.required, Validators.min(1), Validators.max(20)]],
       estatura: ['', [Validators.required, Validators.min(1)]],
       peso: ['', [Validators.required, Validators.min(1)]],
     });
@@ -102,17 +106,21 @@ export class RegistroComponent implements OnInit {
   }
 
   registrarUsuario() {
-    console.log(5544);
     if (this.registrationForm.valid) {
-      // Obtener los datos del formulario
-      const userData = this.registrationForm.value;
-      userData.imc = this.imc;
+      const userData: Usuario = {
+        correo: this.registrationForm.value.correo,
+        contrasena: this.registrationForm.value.contrasena,
+        nombre: this.registrationForm.value.nombre,
+        apellido: this.registrationForm.value.apellido,
+        sexo: this.registrationForm.value.sexo,
+        edad: this.registrationForm.value.edad,
+        estatura: this.registrationForm.value.estatura,
+        peso: this.registrationForm.value.peso,
+      };
 
-      // Realizar el registro llamando al servicio
       this.registroService.registrarUsuario(userData).subscribe(
         (response) => {
           console.log('Usuario registrado:', response);
-          // Registro exitoso, redirigir a otro módulo
           this.router.navigate(['/tareas']);
         },
         (error) => {

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Usuario } from './usuario.model'; // Importamos el modelo de datos
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +11,7 @@ export class RegistroService {
 
   constructor(private http: HttpClient) {}
 
-  registrarUsuario(usuario: any): Observable<any> {
+  registrarUsuario(usuario: Usuario): Observable<any> {
     console.log(usuario);
     return this.http.post<any>(`${this.apiUrl}/usuarios`, usuario);
   }
