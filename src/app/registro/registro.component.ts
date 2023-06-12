@@ -20,15 +20,24 @@ export class RegistroComponent implements OnInit {
 
   ngOnInit() {
     this.registrationForm = this.formBuilder.group({
-      correo: ['', [Validators.required, Validators.email]],
+      correo: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(/^[A-Za-z0-9._%+-]+@estudiantes\.uv\.mx$/),
+        ],
+      ],
       contrasena: [
         '',
-        [Validators.required, Validators.minLength(8), Validators.maxLength(8)],
+        [Validators.required, Validators.pattern(/^[a-zA-Z0-9!@#$%^&*]{8}$/)],
       ],
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
       sexo: ['', Validators.required],
-      edad: ['', [Validators.required, Validators.min(1), Validators.max(20)]],
+      edad: [
+        '',
+        [Validators.required, Validators.pattern(/^(1[8-9]|[2-3][0-9])$/)],
+      ],
       estatura: ['', [Validators.required, Validators.min(1)]],
       peso: ['', [Validators.required, Validators.min(1)]],
     });
@@ -123,7 +132,7 @@ export class RegistroComponent implements OnInit {
     }
 
   }
-  
+
   crearCuenta(): any {
 
     const userData = this.registrationForm.value;
