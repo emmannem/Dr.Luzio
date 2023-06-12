@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegistroService } from './registro.service';
-import { Usuario } from './usuario.model';
+import { crearUsarioModelo } from '../modelos/crearUsarios.model';
 
 @Component({
   selector: 'app-registro',
@@ -105,28 +105,41 @@ export class RegistroComponent implements OnInit {
     return classification;
   }
 
-  registrarUsuario() {
+  async registrarUsuario() {
+    console.log(this.crearCuenta());
+    console.log(this.registrationForm.valid)
     if (this.registrationForm.valid) {
-      const userData: Usuario = {
-        correo: this.registrationForm.value.correo,
-        contrasena: this.registrationForm.value.contrasena,
-        nombre: this.registrationForm.value.nombre,
-        apellido: this.registrationForm.value.apellido,
-        sexo: this.registrationForm.value.sexo,
-        edad: this.registrationForm.value.edad,
-        estatura: this.registrationForm.value.estatura,
-        peso: this.registrationForm.value.peso,
-      };
 
-      this.registroService.registrarUsuario(userData).subscribe(
-        (response) => {
-          console.log('Usuario registrado:', response);
-          this.router.navigate(['/tareas']);
-        },
-        (error) => {
-          console.error('Error en el registro:', error);
+      try {
+        const exito = await this.registroService.registrarUsuario(this.crearCuenta());
+        if (exito) {
+          alert('Ahora Ingresa al Sistema')
+          this.router.navigate(['/']);
         }
-      );
+      } catch (error) {
+        alert('Revisa que los datos sean corectos')
+
+      }
     }
+
   }
+  
+  crearCuenta(): any {
+
+    const userData = this.registrationForm.value;
+    let user = new crearUsarioModelo()
+
+    user.correo_usuario = userData.correo;
+    user.contraseña_usuario = userData.contrasena;
+    user.nombre_usuario = userData.nombre;
+    user.apellidos_usuario = userData.apellido;
+    user.sexo_usuario = userData.sexo;
+    user.edad_usuario = userData.edad;
+    user.IMC_usuario = this.imc;
+    user.peso = userData.peso;
+    user.estatura = userData.estatura;
+    return user;
+  }
+  
+
 }
