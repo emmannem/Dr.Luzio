@@ -23,7 +23,7 @@
 
           <label for="contrasena">Contraseña:</label>
           <input type="password" class="form-control" id="contrasena" formControlName="contrasena"
-            placeholder="Ingresa tu contraseña" />
+            placeholder="Ingresa tu contraseña" maxlength="8" />
           <div *ngIf="
               registrationForm.get('contrasena')?.invalid &&
               (registrationForm.get('contrasena')?.dirty ||

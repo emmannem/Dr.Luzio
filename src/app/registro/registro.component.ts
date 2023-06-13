@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegistroAPIService } from './service/RegistroAPI.service';
 import { crearUsarioModelo } from '../modelos/crearUsarios.model';
@@ -40,7 +40,7 @@ export class RegistroComponent implements OnInit {
         const exito = await this.registroApiService.registrarUsuario(this.crearCuenta());
         if (exito) {
           alert('Ahora Ingresa al Sistema')
-          this.router.navigate(['/']);
+          this.router.navigate(['/test']);
         }
       } catch (error) {
         alert('Revisa que los datos sean corectos')
