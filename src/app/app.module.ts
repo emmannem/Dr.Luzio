@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { RegistroComponent } from './registro/registro.component';
-import { RegistroService } from './registro/registro.service';
+// import { RegistroService } from './registro/service/RegistroAPI.service';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -39,7 +39,7 @@ import { PerfilComponent } from './perfil/perfil.component';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [RegistroService, ComentarioService, appRoutingProviders],
+  providers: [ComentarioService, appRoutingProviders],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

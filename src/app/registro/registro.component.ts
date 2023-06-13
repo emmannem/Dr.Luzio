@@ -1,129 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { RegistroService } from './registro.service';
+import { RegistroAPIService } from './service/RegistroAPI.service';
 import { crearUsarioModelo } from '../modelos/crearUsarios.model';
+import { IMCcalculatorService } from './service/imc-calculator.service';
+import { RegistroFormService } from './service/RegistroFrom.service';
 
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
   styleUrls: ['./registro.component.css'],
+  providers: [
+    RegistroFormService,
+    IMCcalculatorService,
+    RegistroAPIService
+  ],
 })
 export class RegistroComponent implements OnInit {
   registrationForm!: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formService: RegistroFormService,
+    private calcu_imc: IMCcalculatorService,
     private router: Router,
-    private registroService: RegistroService
-  ) {}
+    private registroApiService: RegistroAPIService,
+  ) { }
 
   ngOnInit() {
-    this.registrationForm = this.formBuilder.group({
-      correo: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern(/^[\w-]+(\.[\w-]+)*@estudiantes\.uv\.mx$/),
-        ],
-      ],
-      contrasena: [
-        '',
-        [Validators.required, Validators.minLength(8), Validators.maxLength(8)],
-      ],
-      nombre: [
-        '',
-        [Validators.required, Validators.pattern(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/)],
-      ],
-      apellido: [
-        '',
-        [Validators.required, Validators.pattern(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/)],
-      ],
-      sexo: ['', Validators.required],
-      edad: [
-        '',
-        [
-          Validators.required,
-          Validators.maxLength(2),
-          Validators.min(18),
-          Validators.max(32),
-        ],
-      ],
-      estatura: ['', [Validators.required, Validators.min(100)]],
-      peso: ['', [Validators.required, Validators.min(30)]],
-    });
+    this.registrationForm = this.formService.crearFormulario();
   }
 
-  get imc() {
-    const weight = this.registrationForm?.get('peso')?.value;
-    const height = this.registrationForm?.get('estatura')?.value / 100;
-    const age = this.registrationForm?.get('edad')?.value;
-    const gender = this.registrationForm?.get('sexo')?.value;
-
-    const imc = weight / (height * height);
-
-    let classification = '';
-
-    // Clasificación según la OMS
-    if (imc < 18.5) {
-      classification = 'Bajo peso';
-    } else if (imc >= 18.5 && imc < 25) {
-      classification = 'Normal';
-    } else if (imc >= 25 && imc < 30) {
-      classification = 'Sobrepeso';
-    } else if (imc >= 30) {
-      classification = 'Obesidad';
-    }
-
-    // Ajuste según edad y sexo
-    if (gender === 'M') {
-      if (age < 18 && imc < 18.5) {
-        if (imc <= 16.5) {
-          classification = 'Bajo peso';
-        } else if (imc >= 18.5 && imc < 25) {
-          classification = 'Normal';
-        } else if (imc >= 25 && imc < 30) {
-          classification = 'Sobrepeso';
-        } else if (imc >= 30) {
-          classification = 'Obesidad';
-        }
-      } else {
-        if (imc < 20) {
-          classification = 'Bajo peso';
-        } else if (imc >= 20 && imc < 25) {
-          classification = 'Normal';
-        } else if (imc >= 25 && imc < 30) {
-          classification = 'Sobrepeso';
-        } else if (imc >= 30) {
-          classification = 'Obesidad';
-        }
-      }
-    } else if (gender === 'F') {
-      if (age < 18) {
-        if (imc <= 16 && imc < 17.5) {
-          classification = 'Bajo peso';
-        } else if (imc >= 17.5 && imc < 25) {
-          classification = 'Normal';
-        } else if (imc >= 25 && imc < 30) {
-          classification = 'Sobrepeso';
-        } else if (imc >= 30) {
-          classification = 'Obesidad';
-        }
-      } else {
-        if (imc < 19) {
-          classification = 'Bajo peso';
-        } else if (imc >= 19 && imc < 24) {
-          classification = 'Normal';
-        } else if (imc >= 24 && imc < 30) {
-          classification = 'Sobrepeso';
-        } else if (imc >= 30) {
-          classification = 'Obesidad';
-        }
-      }
-    }
-
-    return classification;
-  }
 
   async registrarUsuario() {
     console.log(this.crearCuenta());
@@ -131,7 +37,7 @@ export class RegistroComponent implements OnInit {
     if (this.registrationForm.valid) {
 
       try {
-        const exito = await this.registroService.registrarUsuario(this.crearCuenta());
+        const exito = await this.registroApiService.registrarUsuario(this.crearCuenta());
         if (exito) {
           alert('Ahora Ingresa al Sistema')
           this.router.navigate(['/']);
@@ -154,12 +60,14 @@ export class RegistroComponent implements OnInit {
     user.nombre_usuario = userData.nombre;
     user.apellidos_usuario = userData.apellido;
     user.sexo_usuario = userData.sexo;
-    user.edad_usuario = userData.edad;
-    user.IMC_usuario = this.imc;
-    user.peso = userData.peso;
-    user.estatura = userData.estatura;
+    user.edad_usuario = parseInt(userData.edad, 10);
+    user.IMC_usuario = this.calcu_imc.imcClassification(
+      userData.peso, userData.estatura, userData.edad, userData.sexo
+    );
+    user.peso = parseInt(userData.peso, 10);
+    user.estatura = parseInt(userData.estatura, 10);
     return user;
   }
-  
+
 
 }

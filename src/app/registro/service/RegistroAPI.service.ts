@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { crearUsarioModelo } from 'src/app/modelos/crearUsarios.model';
 
 @Injectable({
   providedIn: 'root',
 })
-export class RegistroService {
+export class RegistroAPIService {
   constructor(
     private http: HttpClient,) { }
 
-  async registrarUsuario(usuario: object): Promise<boolean> {
+  async registrarUsuario(usuario: any): Promise<boolean> {
     return new Promise<boolean>((resolve, reject) => {
       this.http.post(`http://localhost:3000/usuarios`, usuario).subscribe(
         (response) => {
@@ -23,4 +23,5 @@ export class RegistroService {
       );
     });
   }
+
 }
