@@ -10,82 +10,198 @@
           [formGroup]="registrationForm"
           novalidate
         >
-          <label for="correo">Correo electrónico</label>
+          <label for="correo">Correo Electrónico:</label>
           <input
-            type="email"
-            id="correo"
+            type="text"
             class="form-control"
+            id="correo"
             formControlName="correo"
-            placeholder="example@estudiantes.uv.mx"
-            required
+            placeholder="Ingresa tu correo electrónico"
           />
-          <label for="contrasena">Contraseña</label>
+          <div
+            *ngIf="
+              registrationForm.get('correo')?.invalid &&
+              (registrationForm.get('correo')?.dirty ||
+                registrationForm.get('correo')?.touched)
+            "
+            class="text-danger"
+          >
+            <div *ngIf="registrationForm.get('correo')?.errors?.['required']">
+              El correo es obligatorio.
+            </div>
+            <div *ngIf="registrationForm.get('correo')?.errors?.['pattern']">
+              El correo debe ser usuario@estudiantes.uv.mx.
+            </div>
+          </div>
+
+          <label for="contrasena">Contraseña:</label>
           <input
             type="password"
+            class="form-control"
             id="contrasena"
-            class="form-control"
             formControlName="contrasena"
-            required
-            minlength="8"
-            maxlength="10"
+            placeholder="Ingresa tu contraseña"
           />
-          <label for="nombre">Nombre (s)</label>
-          <input
-            type="text"
-            id="nombre"
-            class="form-control"
-            formControlName="nombre"
-            required
-          />
-
-          <label for="apellido">Apellido (s)</label>
-          <input
-            type="text"
-            id="apellido"
-            class="form-control"
-            formControlName="apellido"
-            required
-          />
-
-          <label for="sexo">Sexo</label>
-          <select
-            id="sexo"
-            class="form-control"
-            formControlName="sexo"
-            required
+          <div
+            *ngIf="
+              registrationForm.get('contrasena')?.invalid &&
+              (registrationForm.get('contrasena')?.dirty ||
+                registrationForm.get('contrasena')?.touched)
+            "
+            class="text-danger"
           >
-            <option value="">Seleccionar</option>
-            <option value="M">Masculino</option>
-            <option value="F">Femenino</option>
+            <div
+              *ngIf="registrationForm.get('contrasena')?.errors?.['required']"
+            >
+              La contraseña es obligatoria.
+            </div>
+            <div
+              *ngIf="registrationForm.get('contrasena')?.errors?.['minlength'] || registrationForm.get('contrasena')?.errors?.['maxlength']"
+            >
+              La contraseña debe tener 8 caracteres.
+            </div>
+          </div>
+
+          <label for="nombre">Nombre:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nombre"
+            formControlName="nombre"
+            placeholder="Ingresa tu nombre"
+          />
+          <div
+            *ngIf="
+              registrationForm.get('nombre')?.invalid &&
+              (registrationForm.get('nombre')?.dirty ||
+                registrationForm.get('nombre')?.touched)
+            "
+            class="text-danger"
+          >
+            <div *ngIf="registrationForm.get('nombre')?.errors?.['required']">
+              El nombre es obligatorio.
+            </div>
+            <div *ngIf="registrationForm.get('nombre')?.errors?.['pattern']">
+              El nombre no puede contener caracteres especiales.
+            </div>
+          </div>
+
+          <label for="apellido">Apellido:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="apellido"
+            formControlName="apellido"
+            placeholder="Ingresa tu apellido"
+          />
+          <div
+            *ngIf="
+              registrationForm.get('apellido')?.invalid &&
+              (registrationForm.get('apellido')?.dirty ||
+                registrationForm.get('apellido')?.touched)
+            "
+            class="text-danger"
+          >
+            <div *ngIf="registrationForm.get('apellido')?.errors?.['required']">
+              El apellido es obligatorio.
+            </div>
+            <div *ngIf="registrationForm.get('apellido')?.errors?.['pattern']">
+              El apellido no puede contener caracteres especiales.
+            </div>
+          </div>
+
+          <label for="sexo">Sexo:</label>
+          <select class="form-control" id="sexo" formControlName="sexo">
+            <option value="">Seleccione</option>
+            <option value="masculino">Masculino</option>
+            <option value="femenino">Femenino</option>
           </select>
+          <div
+            *ngIf="
+              registrationForm.get('sexo')?.invalid &&
+              (registrationForm.get('sexo')?.dirty ||
+                registrationForm.get('sexo')?.touched)
+            "
+            class="text-danger"
+          >
+            <div *ngIf="registrationForm.get('sexo')?.errors?.['required']">
+              El sexo es obligatorio.
+            </div>
+          </div>
 
-          <label for="edad">Edad</label>
+          <label for="edad">Edad:</label>
           <input
-            type="number"
+            type="text"
+            class="form-control"
             id="edad"
-            class="form-control"
             formControlName="edad"
-            required
+            placeholder="Ingresa tu edad"
           />
+          <div
+            *ngIf="
+              registrationForm.get('edad')?.invalid &&
+              (registrationForm.get('edad')?.dirty ||
+                registrationForm.get('edad')?.touched)
+            "
+            class="text-danger"
+          >
+            <div *ngIf="registrationForm.get('edad')?.errors?.['required']">
+              La edad es obligatoria.
+            </div>
+            <div
+              *ngIf="registrationForm.get('edad')?.errors?.['min'] || registrationForm.get('edad')?.errors?.['max']"
+            >
+              La edad debe ser entre 18 y 32 años.
+            </div>
+          </div>
 
-          <label for="estatura">Estatura (cm)</label>
+          <label for="estatura">Estatura (cm):</label>
           <input
-            type="number"
+            type="text"
+            class="form-control"
             id="estatura"
-            class="form-control"
             formControlName="estatura"
-            required
+            placeholder="Ingresa tu estatura"
           />
+          <div
+            *ngIf="
+              registrationForm.get('estatura')?.invalid &&
+              (registrationForm.get('estatura')?.dirty ||
+                registrationForm.get('estatura')?.touched)
+            "
+            class="text-danger"
+          >
+            <div *ngIf="registrationForm.get('estatura')?.errors?.['required']">
+              La estatura es obligatoria.
+            </div>
+            <div *ngIf="registrationForm.get('estatura')?.errors?.['min']">
+              La estatura debe ser mayor a 100 cm.
+            </div>
+          </div>
 
-          <label for="peso">Peso (kg)</label>
+          <label for="peso">Peso (kg):</label>
           <input
-            type="number"
-            id="peso"
+            type="text"
             class="form-control"
+            id="peso"
             formControlName="peso"
-            required
+            placeholder="Ingresa tu peso"
           />
-
+          <div
+            *ngIf="
+              registrationForm.get('peso')?.invalid &&
+              (registrationForm.get('peso')?.dirty ||
+                registrationForm.get('peso')?.touched)
+            "
+            class="text-danger"
+          >
+            <div *ngIf="registrationForm.get('peso')?.errors?.['required']">
+              El peso es obligatorio.
+            </div>
+            <div *ngIf="registrationForm.get('peso')?.errors?.['min']">
+              El peso debe ser mayor o igual a 30 kg.
+            </div>
+          </div>
           <div class="boton">
             <button type="submit" class="btn-registo">Registrar</button>
           </div>
@@ -126,7 +242,7 @@
             alt="Twitter"
           />
         </a>
-        <span class="social-text">Luzio UV</span>
+        <span class="social-text">@LuzioUV</span>
       </button>
     </div>
   </div>

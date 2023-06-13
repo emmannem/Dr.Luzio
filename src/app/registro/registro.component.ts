@@ -24,22 +24,33 @@ export class RegistroComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.pattern(/^[A-Za-z0-9._%+-]+@estudiantes\.uv\.mx$/),
+          Validators.pattern(/^[\w-]+(\.[\w-]+)*@estudiantes\.uv\.mx$/),
         ],
       ],
       contrasena: [
         '',
-        [Validators.required, Validators.pattern(/^[a-zA-Z0-9!@#$%^&*]{8}$/)],
+        [Validators.required, Validators.minLength(8), Validators.maxLength(8)],
       ],
-      nombre: ['', Validators.required],
-      apellido: ['', Validators.required],
+      nombre: [
+        '',
+        [Validators.required, Validators.pattern(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/)],
+      ],
+      apellido: [
+        '',
+        [Validators.required, Validators.pattern(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/)],
+      ],
       sexo: ['', Validators.required],
       edad: [
         '',
-        [Validators.required, Validators.pattern(/^(1[8-9]|[2-3][0-9])$/)],
+        [
+          Validators.required,
+          Validators.maxLength(2),
+          Validators.min(18),
+          Validators.max(32),
+        ],
       ],
-      estatura: ['', [Validators.required, Validators.min(1)]],
-      peso: ['', [Validators.required, Validators.min(1)]],
+      estatura: ['', [Validators.required, Validators.min(100)]],
+      peso: ['', [Validators.required, Validators.min(30)]],
     });
   }
 
