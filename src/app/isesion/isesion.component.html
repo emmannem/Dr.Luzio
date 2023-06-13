@@ -1,118 +1,121 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-    <link rel="stylesheet" href="./isesion.component.css" />
-    <title>Dr. Luzio</title>
-  </head>
-  <body>
-    <main class="target">
-      <section class="isesion">
-        <div class="infoUsuario">
-          <p class="namepage">Dr. Luzio</p>
-          <h1>Iniciar Sesión</h1>
-          <form id="form-isesion" name="formulario" action="/home">
-            <label for="usuario">Usuario</label>
-            <input
-              type="email"
-              name="correo"
-              id="usuario"
-              placeholder="example@estudiantes.uv.mx"
-              pattern="[a-zA-Z0-9._%+-]+@estudiantes.uv\.mx$"
-              required
-              minlength="27"
-              maxlength="30"
-            />
-            <label for="contrasena">Contraseña</label>
-            <input
-              type="password"
-              id="contrasena"
-              required
-              minlength="8"
-              maxlength="10"
-            />
-            <br />
-            <div class="botones">
-              <a routerLink="/registro">
-                <button class="btnRegistro" title="Registro">
-                  Registrarse
-                </button>
-              </a>
-              <input
-                type="submit"
-                id="btn"
-                name="btn"
-                value="Ingresar"
-                routerLink="/tareas"
-              />
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  <link rel="stylesheet" href="./isesion.component.css" />
+  <title>Dr. Luzio</title>
+</head>
+
+<body>
+  <main class="target">
+    <section class="isesion">
+      <div class="infoUsuario">
+        <p class="namepage">Dr. Luzio</p>
+        <h1>Iniciar Sesión</h1>
+        <form id="form-isesion" (ngSubmit)="iniciarSesion()" name="formulario" [formGroup]="registrationForm"
+          action="/home">
+          <label for="usuario">Usuario</label>
+          <div *ngIf="
+          registrationForm.get('correo')?.invalid &&
+          (registrationForm.get('correo')?.dirty ||
+            registrationForm.get('correo')?.touched)
+        " class="text-danger" style="font-size: small;position: absolute;margin-top: 1.5%;">
+            <div *ngIf="registrationForm.get('correo')?.errors?.['required']">
+              El correo es obligatorio.
             </div>
-          </form>
+            <div *ngIf="registrationForm.get('correo')?.errors?.['pattern']">
+              El correo debe ser usuario@estudiantes.uv.mx.
+            </div>
+          </div>
+          <input type="email" name="correo" id="correo" class="form-control" formControlName="correo"
+            placeholder="example@estudiantes.uv.mx" required minlength="27" maxlength="30" />
+
+          <label for="contrasena">Contraseña</label>
+          <div *ngIf="
+            registrationForm.get('contrasena')?.invalid &&
+            (registrationForm.get('contrasena')?.dirty ||
+              registrationForm.get('contrasena')?.touched)
+          " class="text-danger" style="font-size: small; position: absolute;margin-top: 9.5%;">
+            <div *ngIf="registrationForm.get('contrasena')?.errors?.['required']">
+              La contraseña es obligatoria.
+            </div>
+            <div
+              *ngIf="registrationForm.get('contrasena')?.errors?.['minlength'] || registrationForm.get('contrasena')?.errors?.['maxlength']">
+              La contraseña debe tener 8 caracteres.
+            </div>
+          </div>
+          <input type="password" id="contrasena" required maxlength="8" class="form-control" id="contrasena"
+            formControlName="contrasena" />
+
+
+          <div class="botones">
+            <a routerLink="/registro">
+              <button class="btnRegistro" title="Registro">
+                Registrarse
+              </button>
+            </a>
+            <input type="submit" id="btn" name="btn" value="Ingresar" />
+          </div>
+        </form>
+      </div>
+      <div class="footer">
+        <div class="container">
+          <button class="btn-social">
+            <a href="https://www.facebook.com/LuzioUV/" target="_blank">
+              <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAAAXNSR0IArs4c6QAAAdBJREFUOE+1lMFR40AQRX/LQnBbMsAbARABEAHeK6stRASYCIAIgAgQhdgzGawdAYSgEOwbSKBP9RjJI1szpraKuegwM29+9/8twTcs+SpzI+Y+QuQvqeSr7jihGwn77+84lQoDCPo2iMAIRFo+yF3XA53Q9d8cUnAOYNOrishJ/Cr/yrN9bgkaxUwBHK8q0dqfsMKBDW5BPxVeOYBTAikEzz0ir4DEenwShNit+91AtYfVG55cJbPCrq1GjauAf5aAuyITfQgNdC3mtQCnXSoJ3JSZDOs9BRLYJnBtnw9C/FS1DTSKqVHZcpR+WWRyoXu+ngtx9vogKm62opj0mNNA12OOCOw5ojR+zWTfQDv6Y+4IMNZvJUjLe9FUQNsUADucxW17IUpz6NoRdyQwJrVWkYlzOLqSoiIapa7yfdAopvZYB8ReJgGNEkevjDkBMH7JZGTK/8NEiC0QydL4Ck60TfNIzQ7frnLfY9S0CNFHKpNWz6KYOsOt5n8+stL9Ok6t8JvSZoZpmT8WFHuhtUH1nSV3HWAn1ABDDLRsJ9RsJNyMSvPzOPSUPxXiQido0Qfvn19/MiwxoCAvMnnUy5rPKsCk7OHRVrcwBJ7h/M+tD0fW3xYwN+95AAAAAElFTkSuQmCC" />
+            </a>
+          </button>
         </div>
-        <div class="footer">
-          <div class="container">
-            <button class="btn-social">
-              <a href="https://www.facebook.com/LuzioUV/" target="_blank">
-                <img
-                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAAAXNSR0IArs4c6QAAAdBJREFUOE+1lMFR40AQRX/LQnBbMsAbARABEAHeK6stRASYCIAIgAgQhdgzGawdAYSgEOwbSKBP9RjJI1szpraKuegwM29+9/8twTcs+SpzI+Y+QuQvqeSr7jihGwn77+84lQoDCPo2iMAIRFo+yF3XA53Q9d8cUnAOYNOrishJ/Cr/yrN9bgkaxUwBHK8q0dqfsMKBDW5BPxVeOYBTAikEzz0ir4DEenwShNit+91AtYfVG55cJbPCrq1GjauAf5aAuyITfQgNdC3mtQCnXSoJ3JSZDOs9BRLYJnBtnw9C/FS1DTSKqVHZcpR+WWRyoXu+ngtx9vogKm62opj0mNNA12OOCOw5ojR+zWTfQDv6Y+4IMNZvJUjLe9FUQNsUADucxW17IUpz6NoRdyQwJrVWkYlzOLqSoiIapa7yfdAopvZYB8ReJgGNEkevjDkBMH7JZGTK/8NEiC0QydL4Ck60TfNIzQ7frnLfY9S0CNFHKpNWz6KYOsOt5n8+stL9Ok6t8JvSZoZpmT8WFHuhtUH1nSV3HWAn1ABDDLRsJ9RsJNyMSvPzOPSUPxXiQido0Qfvn19/MiwxoCAvMnnUy5rPKsCk7OHRVrcwBJ7h/M+tD0fW3xYwN+95AAAAAElFTkSuQmCC"
-                />
-              </a>
-            </button>
-          </div>
-          <div>
-            <button class="btn-social">
-              <a
-                href="https://www.instagram.com/luzio_oficial/"
-                target="_blank"
-              >
-                <img
-                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAAAXNSR0IArs4c6QAAAfZJREFUOE+1lT1u20AQhb+nH8Zd1KaKDIhCghSxbyC3aaKcwPYJLJeprNxAyAWidOmiG0S+QVwZMA2IPkGUzqZoTbCUKJH6tQNoSu7utzNv5i3FDkI7YLIWanvXVeLS642XxqUrsT9c3LMEtb2gwVjfwKpPq0JdouJ5Fp6DToD8Qlxi6lCwpSxyF41pAC1goMg/TNfyUC8IEaEefLd5Y5gXfAYrosJfzL4izvXgd9yhGTTRcFwagD4pqvWyxKy+iv1Lt2ZecA28oVx6RRz/SGDTZDLQaekFjnTv95ODDCqU4wuUlJjGEHQKvEPjCNMd2Aek6lqoIn9+Ufm2g+wEsxbFxz6UqjyqiewMs0ON6r+nWbeBi/TsUqbpwkwOs1ON6t2cHF7gYKEiv/lMaCpHvK/7t+ECtA06VlTb/0/oXOMUbBNZGor8g2dBp5uHmLoa1WaNSprnxQNM39Pv5gWbNaUwL9e82ybYT8Bp2MOoIE6AO6JSI3XRFNpS5FcW5nR5pJJsyzcHSC4TZ4gQU59RsZ21pXlBD1FZHqlJWX9Y0e0nuCsE6yuquyryr5R5N13QR8yO0hncDkzOHJMxTd77k2ydm95j9BGJs1aH3CvWmL5mXxT5TqIkVr6n9iJw3W5iuJF5uYZ6lWhcoJPaeiN0W8nb1nfyO/kHXKwLJRsT36AAAAAASUVORK5CYII="
-                />
-              </a>
-            </button>
-          </div>
-          <div>
-            <button class="btn-social">
-              <a href="https://twitter.com/LuzioUV" target="_blank">
-                <img
-                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAAAXNSR0IArs4c6QAAAX5JREFUOE/NVEFugkAUfROw2zprMeUI9ASlN/AIuihNV+UG6gm0K6MutDewJ2h7g3KC2pSuR7cG8pshQAcExCYmzgqY4c1/7/33GU6w2AkwcR6g5kSYgYYryVBvwFv3+CbPNq3UXIhmEMDy7/hbmSTGTIwBPCr7EnAQvRO4f8+j5xS0PRNdAkYE3P44/CMPbMyFDcJryYVbAH09xMv6ga/zoIvoJsJYu8BQpWZMxQAM/TIWDOh9O3yZqTTW6lOlxghLYlhJ7YId3ArQd9/hdvLvn6YTYYYabAKiao9cT77D3T3QWNP/AEqTholJRfSlQZdHVgkCrlVzM83fnooOMUixjwH+8h1uqoVkQKNerTZkj4Tq+p6myYfWXLiMMKopgec73CpNlLohTQODTYROhRRbAuyioBQOlDg9stHT3stVUwqYui+1DHewiUW5lnSapclheNZ0uEWDpFDT1kxYDOjGwDfxIQ/ARiarEWAls31I7/OYp4eqzCSqzuG6Z34BwCyKFgifls4AAAAASUVORK5CYII="
-                />
-              </a>
-            </button>
-          </div>
+        <div>
+          <button class="btn-social">
+            <a href="https://www.instagram.com/luzio_oficial/" target="_blank">
+              <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAAAXNSR0IArs4c6QAAAfZJREFUOE+1lT1u20AQhb+nH8Zd1KaKDIhCghSxbyC3aaKcwPYJLJeprNxAyAWidOmiG0S+QVwZMA2IPkGUzqZoTbCUKJH6tQNoSu7utzNv5i3FDkI7YLIWanvXVeLS642XxqUrsT9c3LMEtb2gwVjfwKpPq0JdouJ5Fp6DToD8Qlxi6lCwpSxyF41pAC1goMg/TNfyUC8IEaEefLd5Y5gXfAYrosJfzL4izvXgd9yhGTTRcFwagD4pqvWyxKy+iv1Lt2ZecA28oVx6RRz/SGDTZDLQaekFjnTv95ODDCqU4wuUlJjGEHQKvEPjCNMd2Aek6lqoIn9+Ufm2g+wEsxbFxz6UqjyqiewMs0ON6r+nWbeBi/TsUqbpwkwOs1ON6t2cHF7gYKEiv/lMaCpHvK/7t+ECtA06VlTb/0/oXOMUbBNZGor8g2dBp5uHmLoa1WaNSprnxQNM39Pv5gWbNaUwL9e82ybYT8Bp2MOoIE6AO6JSI3XRFNpS5FcW5nR5pJJsyzcHSC4TZ4gQU59RsZ21pXlBD1FZHqlJWX9Y0e0nuCsE6yuquyryr5R5N13QR8yO0hncDkzOHJMxTd77k2ydm95j9BGJs1aH3CvWmL5mXxT5TqIkVr6n9iJw3W5iuJF5uYZ6lWhcoJPaeiN0W8nb1nfyO/kHXKwLJRsT36AAAAAASUVORK5CYII=" />
+            </a>
+          </button>
         </div>
-      </section>
-      <div class="imagen-luzio"></div>
-    </main>
-  </body>
-  <script src="/src/app/isesion/isesion.component.ts"></script>
+        <div>
+          <button class="btn-social">
+            <a href="https://twitter.com/LuzioUV" target="_blank">
+              <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAAAXNSR0IArs4c6QAAAX5JREFUOE/NVEFugkAUfROw2zprMeUI9ASlN/AIuihNV+UG6gm0K6MutDewJ2h7g3KC2pSuR7cG8pshQAcExCYmzgqY4c1/7/33GU6w2AkwcR6g5kSYgYYryVBvwFv3+CbPNq3UXIhmEMDy7/hbmSTGTIwBPCr7EnAQvRO4f8+j5xS0PRNdAkYE3P44/CMPbMyFDcJryYVbAH09xMv6ga/zoIvoJsJYu8BQpWZMxQAM/TIWDOh9O3yZqTTW6lOlxghLYlhJ7YId3ArQd9/hdvLvn6YTYYYabAKiao9cT77D3T3QWNP/AEqTholJRfSlQZdHVgkCrlVzM83fnooOMUixjwH+8h1uqoVkQKNerTZkj4Tq+p6myYfWXLiMMKopgec73CpNlLohTQODTYROhRRbAuyioBQOlDg9stHT3stVUwqYui+1DHewiUW5lnSapclheNZ0uEWDpFDT1kxYDOjGwDfxIQ/ARiarEWAls31I7/OYp4eqzCSqzuG6Z34BwCyKFgifls4AAAAASUVORK5CYII=" />
+            </a>
+          </button>
+        </div>
+      </div>
+    </section>
+    <div class="imagen-luzio"></div>
+  </main>
+</body>
+<script src="/src/app/isesion/isesion.component.ts"></script>
 
-  <script>
-    (function () {
-      var formulario = document.getElementsByName("formulario")[0],
-        elementos = formulario.elements,
-        boton = document.getElementById("btn");
+<script>
+  // (function () {
+  //   var formulario = document.getElementsByName("formulario")[0],
+  //     elementos = formulario.elements,
+  //     boton = document.getElementById("btn");
 
-      var validarCorreo = function (e) {
-        if (formulario.correo.value == 0) {
-          alert("Completa los campos");
-          e.preventDefault();
-        }
-      };
+  //   var validarCorreo = function (e) {
+  //     if (formulario.correo.value == 0) {
+  //       alert("Completa los campos");
+  //       e.preventDefault();
+  //     }
+  //   };
 
-      var validar = function (e) {
-        validarCorreo(e);
-      };
+  //   var validar = function (e) {
+  //     validarCorreo(e);
+  //   };
 
-      formulario.addEventListener("submit", validar);
-    });
-  </script>
+  //   formulario.addEventListener("submit", validar);
+  // });
+</script>
+
 </html>
