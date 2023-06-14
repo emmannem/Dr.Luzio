@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { FormGroup, } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegistroAPIService } from './service/RegistroAPI.service';
@@ -18,7 +18,6 @@ import { RegistroFormService } from './service/RegistroFrom.service';
 })
 export class RegistroComponent implements OnInit {
   registrationForm!: FormGroup;
-
   constructor(
     private formService: RegistroFormService,
     private calcu_imc: IMCcalculatorService,
@@ -50,10 +49,10 @@ export class RegistroComponent implements OnInit {
 
   }
 
-  crearCuenta(): any {
+  crearCuenta(): crearUsarioModelo {
 
     const userData = this.registrationForm.value;
-    let user = new crearUsarioModelo()
+    let user!: crearUsarioModelo;
 
     user.correo_usuario = userData.correo;
     user.contraseña_usuario = userData.contrasena;

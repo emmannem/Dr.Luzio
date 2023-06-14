@@ -32,7 +32,7 @@ export class IsesionComponent {
         const exito = await this.isesionAPI.inicioSesion(userData.correo, userData.contrasena);
         if (exito) {
           alert('Ahora Ingresa al Sistema')
-          this.router.navigate(['/tareas']);
+          this.router.navigate(['/perfil']);
         }
       } catch (error) {
         alert('Revisa que los datos sean corectos')

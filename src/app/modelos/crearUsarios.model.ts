@@ -1,22 +1,22 @@
 
 
-export class crearUsarioModelo {
+export interface crearUsarioModelo {
 
-    correo_usuario!: string;
+    correo_usuario: string;
 
-    contraseña_usuario!: string;
+    contraseña_usuario: string;
 
-    nombre_usuario!: string;
+    nombre_usuario: string;
 
-    apellidos_usuario!: string;
+    apellidos_usuario: string;
 
-    sexo_usuario!: string;
+    sexo_usuario: string;
 
-    edad_usuario!: number;
+    edad_usuario: number;
 
-    IMC_usuario!: string;
+    IMC_usuario: string;
 
-    estatura!: number;
+    estatura: number;
 
-    peso!: number;
+    peso: number;
 }
