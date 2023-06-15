@@ -71,6 +71,9 @@
               "browserTarget": "MudulosAhoraSi:build:development"
             }
           },
+          "options": {
+            "proxyConfig": "src/proxi.conf.json"
+          },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
