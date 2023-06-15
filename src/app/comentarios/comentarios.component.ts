@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { ComentarioService } from './comentarios.service';
+import { Component, OnInit } from '@angular/core';
+import { ComentariosService } from './service/comentarios.service';
+import { Comentario } from '../modelos/comentario.model';
 
 @Component({
   selector: 'app-comentarios',
@@ -7,65 +8,31 @@ import { ComentarioService } from './comentarios.service';
   styleUrls: ['./comentarios.component.css'],
 })
 export class ComentariosComponent implements OnInit {
-  comentarios: any[] = [];
-  nuevoComentarioTexto: string = '';
-  mostrarUltimosComentarios: boolean = false;
+  comentarios!: Comentario[];
 
-  @ViewChild('comentariosContainer', { static: true })
-  comentariosContainer!: ElementRef;
-
-  constructor(private comentarioService: ComentarioService) {}
+  constructor(private comentariosService: ComentariosService) {}
 
   ngOnInit() {
     this.obtenerComentarios();
   }
 
   obtenerComentarios() {
-    const correoUsuario = 'usuario@ejemplo.com'; // Obtén el correo electrónico del usuario actual
-
-    this.comentarioService.obtenerComentarios(correoUsuario).subscribe(
-      (response: any) => {
-        if (response && response.length > 0) {
-          this.comentarios = response.slice(-5); // Mostrar solo los últimos 5 comentarios
-          this.mostrarUltimosComentarios = true;
-          this.scrollUp();
-        }
-      },
-      (error) => {
-        console.log('Error al obtener los comentarios:', error);
-      }
-    );
+    this.comentariosService
+      .getComentarios()
+      .subscribe((comentarios: Comentario[]) => {
+        this.comentarios = comentarios;
+      });
   }
 
-  agregarComentario() {
-    if (this.nuevoComentarioTexto.trim() !== '') {
-      const correoUsuario = 'usuario@ejemplo.com'; // Obtén el correo electrónico del usuario actual
+  agregarComentario(texto: string, tipo: string) {
+    const nuevoComentario: Comentario = {
+      tipoModulo: tipo, // Reemplaza con el nombre real del módulo
+      texto_comentario: texto,
+      cuenta: 3,
+    };
 
-      const nuevoComentario = {
-        texto: this.nuevoComentarioTexto,
-        correoUsuario: correoUsuario,
-      };
-
-      this.comentarioService.agregarComentario(nuevoComentario).subscribe(
-        (response) => {
-          this.comentarios.push(nuevoComentario);
-          if (this.comentarios.length > 5) {
-            this.comentarios.shift(); // Eliminar el primer comentario si hay más de 5
-          }
-          this.nuevoComentarioTexto = '';
-          this.mostrarUltimosComentarios = true;
-          this.scrollUp();
-        },
-        (error) => {
-          console.log('Error al agregar el comentario:', error);
-        }
-      );
-    }
-  }
-
-  scrollUp() {
-    setTimeout(() => {
-      this.comentariosContainer.nativeElement.scrollTop = 0;
-    }, 0);
+    this.comentariosService.agregarComentario(nuevoComentario).subscribe(() => {
+      this.obtenerComentarios();
+    });
   }
 }

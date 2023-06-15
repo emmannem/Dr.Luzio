@@ -20,55 +20,36 @@
       <app-navbar></app-navbar>
     </nav>
     <main class="comentarios">
-      <div class="container" *ngIf="mostrarUltimosComentarios">
-        <h2>Últimos comentarios</h2>
+      <h2>Comentarios</h2>
 
-        <ul class="list-group" *ngIf="comentarios.length > 0">
-          <li class="list-group-item" *ngFor="let comentario of comentarios">
-            {{ comentario.texto }}
-          </li>
-        </ul>
-      </div>
-
-      <div class="container" *ngIf="!mostrarUltimosComentarios">
-        <form (ngSubmit)="agregarComentario()" class="formulario-comentario">
-          <div class="form-group">
-            <label for="nuevoComentario">Nuevo comentario:</label>
-            <input
-              type="text"
-              id="nuevoComentario"
-              class="form-control"
-              [(ngModel)]="nuevoComentarioTexto"
-              name="nuevoComentario"
-              required
-            />
-          </div>
-
-          <button type="submit" class="btn btn-primary boton-comentario">
-            Agregar comentario
-          </button>
-        </form>
+      <div *ngIf="comentarios" class="list-group">
+        <div *ngFor="let comentario of comentarios" class="list-group-item">
+          <p class="modulo">{{ comentario.tipoModulo }}</p>
+          <p class="comentario">{{ comentario.texto_comentario }}</p>
+        </div>
       </div>
 
       <form
-        (ngSubmit)="agregarComentario()"
-        *ngIf="mostrarUltimosComentarios"
-        class="formulario-comentario"
+        (submit)="
+          agregarComentario(comentarioInput.value, tipoModuloSelect.value)
+        "
       >
-        <div class="form-group">
-          <label for="nuevoComentario">Nuevo comentario:</label>
-          <input
-            type="text"
-            id="nuevoComentario"
-            class="form-control"
-            [(ngModel)]="nuevoComentarioTexto"
-            name="nuevoComentario"
-            required
-          />
-        </div>
-
-        <button type="submit" class="btn btn-primary boton-comentario">
-          Agregar comentario
+        <select #tipoModuloSelect class="select-modulo">
+          <option value="" disabled selected hidden>Seleccionar módulo</option>
+          <option value="Login">Login</option>
+          <option value="Registro">Registro</option>
+          <option value="Home">Home</option>
+          <option value="Perfil">Perfil</option>
+          <option value="Comentarios">Comentarios</option>
+          <option value="Test">Test</option>
+        </select>
+        <input
+          type="text"
+          #comentarioInput
+          placeholder="Escribe un comentario"
+        />
+        <button type="submit" class="boton-comentario">
+          Agregar Comentario
         </button>
       </form>
     </main>
