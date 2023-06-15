@@ -14,7 +14,8 @@ export class IsesionAPIService {
         private cache: LocalStorageService,) { }
 
     async inicioSesion(usuario: string, contraseña: string): Promise<boolean> {
-        let url = 'http://localhost:3000/usuarios/login/' + usuario + ',' + contraseña;
+
+        let url = 'http://192.168.137.1:3000/usuarios/login/' + usuario + ',' + contraseña;
         console.log(url)
         return new Promise<boolean>((resolve, reject) => {
             this.http.get<loginModel>(url).subscribe(

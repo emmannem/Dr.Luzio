@@ -11,7 +11,7 @@ export class PerfilService {
     ) { }
 
     obtenerUsuarioPorCorreo(): Observable<PerfilUsuario> {
-        const url = 'http://localhost:3000/usuarios/correo/' + this.cache.getItem();
+        const url = 'http://192.168.137.1:3000/usuarios/correo/' + this.cache.getItem();
         return this.http.get<PerfilUsuario>(url);
     }
 }

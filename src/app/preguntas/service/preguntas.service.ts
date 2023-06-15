@@ -13,7 +13,7 @@ export class PreguntasAPIService {
 
     async asignarAPI(data: any): Promise<boolean> {
         return new Promise<boolean>((resolve, reject) => {
-            this.http.patch(`http://localhost:3000/usuarios/Estres/` + this.cache.getItem(), data).subscribe(
+            this.http.patch(`http://192.168.137.1:3000/usuarios/Estres/` + this.cache.getItem(), data).subscribe(
                 (response) => {
                     console.log('Data Lista:', response);
                     resolve(true); // Resuelve la promesa con éxito
@@ -28,7 +28,7 @@ export class PreguntasAPIService {
     }
     async AsignarTareasEstres() {
         let header = new HttpHeaders().set("Type", "aplication/json");
-        let url = "http://localhost:3000/usuario-act-estres/asignarAct/" + this.cache.getItem();
+        let url = "http://192.168.137.1:3000/usuario-act-estres/asignarAct/" + this.cache.getItem();
         this.http.post(url, { header: header }).subscribe(
             (response) => {
                 console.log(response)

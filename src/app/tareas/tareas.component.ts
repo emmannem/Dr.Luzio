@@ -38,7 +38,7 @@ export class TareasComponent implements OnInit {
 
   async peticion(correo: string) {
     let url =
-      "http://localhost:3000/act-imc/actividades/E," +
+      "http://192.168.137.1:3000/act-imc/actividades/E," +
       correo;
     this.resultado$ = await this.http.get(url).toPromise();
     this.actividades = this.resultado$;
@@ -51,7 +51,7 @@ export class TareasComponent implements OnInit {
 
   async peticion2(correo: string) {
     let header = new HttpHeaders().set("Type", "aplication/json");
-    let url = "http://localhost:3000/act-nivel-estres/act/" + correo;
+    let url = "http://192.168.137.1:3000/act-nivel-estres/act/" + correo;
     let resultado2 = await this.http
       .get(url, { headers: header })
       .subscribe((data: any) => {
@@ -65,7 +65,7 @@ export class TareasComponent implements OnInit {
   async peticion3(correo: string) {
     let header = new HttpHeaders().set("Type", "aplication/json");
     let url =
-      "http://localhost:3000/act-imc/actividades/A," +
+      "http://192.168.137.1:3000/act-imc/actividades/A," +
       correo;
     let resultado3 = await this.http
       .get(url, { headers: header })
@@ -76,7 +76,7 @@ export class TareasComponent implements OnInit {
         } else {
           this.actividadesMostrar3 = [];
         }
-        
+
         this.contador += this.actividades3.length;
       });
     return resultado3;
@@ -99,7 +99,7 @@ export class TareasComponent implements OnInit {
     this.actividades3 = this.actividadesMostrar3;
 
     let url =
-      "http://localhost:3000/usuario-act-imc/update/" +
+      "http://192.168.137.1:3000/usuario-act-imc/update/" +
       this.ID_Usuario +
       "," +
       id;
@@ -132,7 +132,7 @@ export class TareasComponent implements OnInit {
     this.actividades3 = this.actividadesMostrar3;
 
     let url =
-      "http://localhost:3000/usuario-act-estres/update/" +
+      "http://192.168.137.1:3000/usuario-act-estres/update/" +
       this.ID_Usuario +
       "," +
       id;
