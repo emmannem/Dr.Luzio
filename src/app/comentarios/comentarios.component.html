@@ -1,57 +1,48 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-    <link rel="stylesheet" href="./comentarios.component.css" />
-    <title>Comentarios</title>
-  </head>
+<body>
+  <nav id="Navegacion">
+    <app-navbar></app-navbar>
+  </nav>
+  <main class="comentarios">
+    <h2>Comentarios</h2>
 
-  <body>
-    <nav id="Navegacion">
-      <app-navbar></app-navbar>
-    </nav>
-    <main class="comentarios">
-      <h2>Comentarios</h2>
-
-      <div *ngIf="comentarios" class="list-group">
-        <div *ngFor="let comentario of comentarios" class="list-group-item">
-          <p class="modulo">{{ comentario.tipoModulo }}</p>
-          <p class="comentario">{{ comentario.texto_comentario }}</p>
-        </div>
+    <div *ngIf="comentarios" class="list-group">
+      <div *ngFor="let comentario of comentarios" class="list-group-item">
+        <p class="modulo">{{ comentario.tipoModulo }}</p>
+        <p class="comentario">{{ comentario.texto_comentario }}</p>
       </div>
+    </div>
 
-      <form
-        (submit)="
-          agregarComentario(comentarioInput.value, tipoModuloSelect.value)
-        "
+    <form
+      (submit)="
+        agregarComentario(comentarioInput.value, tipoModuloSelect.value)
+      "
+    >
+      <select #tipoModuloSelect class="select-modulo" required>
+        <option value="" disabled selected hidden>Seleccionar módulo</option>
+        <option value="Login">Login</option>
+        <option value="Registro">Registro</option>
+        <option value="Home">Home</option>
+        <option value="Perfil">Perfil</option>
+        <option value="Comentarios">Comentarios</option>
+        <option value="Test">Test</option>
+      </select>
+      <input
+        type="text"
+        #comentarioInput
+        placeholder="Escribe un comentario"
+        required
+      />
+      <button
+        type="submit"
+        class="boton-comentario"
+        [disabled]="comentarioInput.value || tipoModuloSelect.value"
       >
-        <select #tipoModuloSelect class="select-modulo">
-          <option value="" disabled selected hidden>Seleccionar módulo</option>
-          <option value="Login">Login</option>
-          <option value="Registro">Registro</option>
-          <option value="Home">Home</option>
-          <option value="Perfil">Perfil</option>
-          <option value="Comentarios">Comentarios</option>
-          <option value="Test">Test</option>
-        </select>
-        <input
-          type="text"
-          #comentarioInput
-          placeholder="Escribe un comentario"
-        />
-        <button type="submit" class="boton-comentario">
-          Agregar Comentario
-        </button>
-      </form>
-    </main>
-  </body>
-</html>
+        Agregar Comentario
+      </button>
+
+      <p *ngIf="mostrarError" class="error-message">
+        Por favor, selecciona un módulo y escribe un comentario.
+      </p>
+    </form>
+  </main>
+</body>
