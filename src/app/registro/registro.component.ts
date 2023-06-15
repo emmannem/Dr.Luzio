@@ -38,7 +38,7 @@ export class RegistroComponent implements OnInit {
       try {
         const exito = await this.registroApiService.registrarUsuario(this.crearCuenta());
         if (exito) {
-          alert('Ahora Ingresa al Sistema')
+          // alert('Ahora Ingresa al Sistema')
           this.router.navigate(['/test']);
         }
       } catch (error) {

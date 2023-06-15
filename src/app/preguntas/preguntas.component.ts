@@ -24,11 +24,11 @@ export class PreguntasComponent {
     try {
       const exito = await this.serviceAPI.asignarAPI(this.dataEstres());
       if (exito) {
-        alert('Ahora Ingresa al Sistema')
+        // alert('Ahora Ingresa al Sistema')
         this.router.navigate(['/test-final']);
       }
     } catch (error) {
-      alert('Revisa que los datos sean corectos')
+      alert('Revisa las respuestas')
 
     }
 
