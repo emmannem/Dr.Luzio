@@ -93,7 +93,7 @@ export class TareasComponent implements OnInit {
     this.actividades3 = this.actividadesMostrar3;
 
     let url =
-      "http://192.168.137.1:3000/usuario-act-imc/update/" +
+      "http://localhost:3000/usuario-act-imc/update/" +
       this.ID_Usuario +
       "," +
       id;
@@ -126,7 +126,7 @@ export class TareasComponent implements OnInit {
     this.actividades3 = this.actividadesMostrar3;
 
     let url =
-      "http://192.168.137.1:3000/usuario-act-estres/update/" +
+      "http://localhost:3000/usuario-act-estres/update/" +
       this.ID_Usuario +
       "," +
       id;
