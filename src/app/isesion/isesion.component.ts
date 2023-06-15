@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { IsesionFormService } from './service/isesionFrom.service';
 import { IsesionAPIService } from './service/isesionAPI.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-isesion',
@@ -16,7 +15,6 @@ import { Router } from '@angular/router';
 export class IsesionComponent {
   registrationForm!: FormGroup;
   constructor(
-    private router: Router,
     private formService: IsesionFormService,
     private isesionAPI: IsesionAPIService
   ) { }
@@ -32,7 +30,7 @@ export class IsesionComponent {
         const exito = await this.isesionAPI.inicioSesion(userData.correo, userData.contrasena);
         if (exito) {
           alert('Ahora Ingresa al Sistema')
-          this.router.navigate(['/perfil']);
+
         }
       } catch (error) {
         alert('Revisa que los datos sean corectos')
