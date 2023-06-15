@@ -49,24 +49,27 @@ export class RegistroComponent implements OnInit {
 
   }
 
-  crearCuenta(): crearUsarioModelo {
-
+  crearCuenta(): any {
     const userData = this.registrationForm.value;
-    let user!: crearUsarioModelo;
+    console.log(userData);
 
-    user.correo_usuario = userData.correo;
-    user.contraseña_usuario = userData.contrasena;
-    user.nombre_usuario = userData.nombre;
-    user.apellidos_usuario = userData.apellido;
-    user.sexo_usuario = userData.sexo;
-    user.edad_usuario = parseInt(userData.edad, 10);
-    user.IMC_usuario = this.calcu_imc.imcClassification(
-      userData.peso, userData.estatura, userData.edad, userData.sexo
-    );
-    user.peso = parseInt(userData.peso, 10);
-    user.estatura = parseInt(userData.estatura, 10);
+    const user: crearUsarioModelo = {
+      correo_usuario: userData.correo,
+      contraseña_usuario: userData.contrasena,
+      nombre_usuario: userData.nombre,
+      apellidos_usuario: userData.apellido,
+      sexo_usuario: userData.sexo,
+      edad_usuario: parseInt(userData.edad, 10),
+      IMC_usuario: this.calcu_imc.imcClassification(
+        userData.peso, userData.estatura, userData.edad, userData.sexo
+      ),
+      peso: parseInt(userData.peso, 10),
+      estatura: parseInt(userData.estatura, 10),
+    };
+
     return user;
   }
+
 
 
 }
