@@ -32,7 +32,7 @@ export class RegistroAPIService {
   async AsignarTareasIMC() {
     let header = new HttpHeaders().set("Type", "aplication/json");
 
-    let url = "http://192.168.137.1/usuario-act-imc/asignarAct/" + this.cache.getItem() + ',A';
+    let url = "http://192.168.137.1:3000/usuario-act-imc/asignarAct/" + this.cache.getItem() + ',A';
     this.http.post(url, { header: header }).subscribe(
       (response) => {
         console.log(response)
@@ -42,7 +42,7 @@ export class RegistroAPIService {
       }
     )
 
-    url = "http://192.168.137.1/usuario-act-imc/asignarAct/" + this.cache.getItem() + ',E';
+    url = "http://192.168.137.1:3000/usuario-act-imc/asignarAct/" + this.cache.getItem() + ',E';
     this.http.post(url, { header: header }).subscribe(
       (response) => {
         console.log(response)
