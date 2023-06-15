@@ -42,6 +42,7 @@ export class TareasComponent implements OnInit {
       correo;
     this.resultado$ = await this.http.get(url).toPromise();
     this.actividades = this.resultado$;
+    console.log(this.actividades)
     this.actividadesMostrar = this.actividades;
     this.contador += this.actividades.length;
 
@@ -70,7 +71,12 @@ export class TareasComponent implements OnInit {
       .get(url, { headers: header })
       .subscribe((data: any) => {
         this.actividades3 = data;
-        this.actividadesMostrar3 = this.actividades3;
+        if (this.actividades3.length > 2) {
+          this.actividadesMostrar3 = this.actividades3;
+        } else {
+          this.actividadesMostrar3 = [];
+        }
+        
         this.contador += this.actividades3.length;
       });
     return resultado3;
@@ -132,7 +138,7 @@ export class TareasComponent implements OnInit {
       id;
     console.log(url)
 
-    await this.http.patch(url, { estado: true }).subscribe(
+    await this.http.patch(url, { estado_usuarioActEstres: true }).subscribe(
       (response) => {
         console.log(response)
       },
