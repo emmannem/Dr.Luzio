@@ -1,16 +1,18 @@
 body {
   position: relative;
-  width: 100%;
-  height: 100vh;
+  min-height: 100vh; /* Establece una altura mínima igual a la altura de la ventana */
   background: var(--withe);
   display: flex;
   flex-direction: column;
   font-family: "Source Sans Pro", sans-serif;
+  margin: 0; /* Elimina el margen predeterminado del body */
+  padding: 0; /* Elimina el padding predeterminado del body */
 }
 
 main {
-  margin-left: 10px;
-  margin-top: 120px;
+  margin-left: 1%;
+  margin-top: 20px;
+  flex-grow: 1; /* Permite que el contenido crezca para ocupar todo el espacio disponible */
 }
 
 h2 {
@@ -19,27 +21,31 @@ h2 {
 
 .list-group {
   width: 100%;
-  gap: 10px;
 }
 
 .list-group-item {
+  display: inline-block;
   padding: 10px;
   background: rgba(217, 217, 217, 0.33);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
+  margin-bottom: 10px;
 }
 
-.formulario-comentario {
-  margin-top: 20px;
-  transition: margin-top 0.3s ease; /* Transición suave */
+.list-group-item p {
+  margin: 5px 0;
 }
 
-.formulario-comentario.agregar-comentario {
-  margin-top: 70px; /* Ajusta la altura según tus necesidades */
+.list-group-item p.modulo {
+  font-weight: bold;
+}
+
+.list-group-item p.comentario {
+  font-weight: normal;
 }
 
 input {
-  width: 100%;
+  width: 99%;
   padding: 10px;
   background: rgba(217, 217, 217, 0.33);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -49,6 +55,8 @@ button {
   border: none;
   background-color: transparent;
   cursor: pointer;
+  margin-left: auto;
+  margin-right: 1%;
 }
 
 .boton-comentario {
@@ -61,4 +69,59 @@ button {
   margin-top: 20px;
   width: 190px;
   height: 40px;
+
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.boton-comentario:hover {
+  background: var(--verde-btn-hover);
+  cursor: pointer;
+}
+
+.select-modulo {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 16px;
+  font-family: "Source Sans Pro", sans-serif;
+  color: #333;
+  width: 100%;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.select-modulo:focus {
+  outline: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.select-modulo option {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 16px;
+  color: #555;
+}
+
+.select-modulo option:first-child {
+  color: #999;
+}
+
+.select-modulo option:checked {
+  font-weight: bold;
+}
+
+.select-modulo::after {
+  content: "\25BC";
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: #555;
+  pointer-events: none;
 }
