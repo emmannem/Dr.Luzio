@@ -23,6 +23,7 @@ export class RegistroAPIService {
         },
         (error) => {
           console.error('Error en el registro:', error);
+          alert('Revisa tus datos')
           reject(false); // Rechaza la promesa con fallo
         }
       );
