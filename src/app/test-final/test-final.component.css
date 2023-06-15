@@ -37,7 +37,7 @@ main .contenido {
 }
 
 main .imagen-luzio {
-  background-image: url(./assets/luzio_test.jpg);
+  background-image: url(../../assets/luzio_test.jpg);
   background-size: 110%;
   background-position: center;
   max-width: 100%;
@@ -81,7 +81,7 @@ button {
 }
 
 @media screen and (max-width: 400px) {
-  main{
+  main {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     height: 100%;

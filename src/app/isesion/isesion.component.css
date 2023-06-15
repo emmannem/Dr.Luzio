@@ -1,4 +1,6 @@
-body{
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans|Source+Sans+Pro");
+
+body {
   height: 100vh;
   width: 100%;
   margin: 0;
@@ -6,25 +8,25 @@ body{
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
-main{
+main {
   /* height: 500px; */
-  width:800px;
+  width: 800px;
   border-radius: 1rem;
   background-color: white;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   overflow: hidden;
 }
-main .imagen-luzio{
-  background-image: url(./assets/LuzioDoctor.png);
+main .imagen-luzio {
+  background-image: url(../../assets/LuzioDoctor.png);
   background-size: cover;
   background-position: center;
   width: 100%;
 }
-main .isesion{
+main .isesion {
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -34,47 +36,47 @@ main .isesion{
   top: 50%;
 }
 
-.infoUsuario{
+.infoUsuario {
   padding: 2rem 0;
   width: 100%;
 }
 
-input:invalid{
+input:invalid {
   border: 1px solid rgb(92, 92, 92);
 }
 
-input:invalid:required{
+input:invalid:required {
   border: 2px solid black;
 }
 
-input:valid{
+input:valid {
   border: 1px solid black;
 }
 
-.namepage{
+.namepage {
   margin: 0;
-  font-family: 'Josefin Sans';
-  font-weight: 550;
+  font-family: "Josefin Sans";
+  font-weight: bold;
   font-size: 2rem;
 }
 
-h1{
+h1 {
   margin: 0;
   font-size: 1rem;
 }
 
-#form-isesion{
+#form-isesion {
   display: flex;
   flex-direction: column;
   margin: 30px 0;
   width: 100%;
   gap: 20px;
 }
-label{
+label {
   text-align: left;
   font-size: 15px;
 }
-input{
+input {
   box-sizing: border-box;
   padding: 10px;
   border-radius: 4px;
@@ -83,15 +85,15 @@ input{
   width: 100%;
 }
 
-.botones{
+.botones {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
 
-button{
-  display:flex;
+button {
+  display: flex;
   align-items: center;
   padding: 10px;
   border: solid;
@@ -102,10 +104,10 @@ button{
   cursor: pointer;
 }
 
-#btn{
+#btn {
   height: 2.4rem;
   width: 5rem;
-  display:flex;
+  display: flex;
   align-items: center;
   padding: 10px;
   border: solid 1px;
@@ -116,54 +118,51 @@ button{
   cursor: pointer;
 }
 
-.btnRegistro{
+.btnRegistro {
   text-align: center;
   background-color: aliceblue;
-  }
+}
 
 /* a{
     text-decoration: none;
   } */
 
-.btn-social{
+.btn-social {
   border: none;
-  background-color:transparent;
+  background-color: transparent;
 }
 
-
 /* footer */
-.footer{
-display: flex;
-flex-direction:row;
-align-items: center;
-justify-content: center;
-width: 100%;
-height: 1rem;
+.footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 1rem;
 }
 
 /* Adaptable (Responsivo) */
 
 @media screen and (max-width: 400px) {
-  main{
+  main {
     width: 100%;
     height: 100%;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     border-radius: 0;
   }
-  main .imagen-luzio{
+  main .imagen-luzio {
     grid-row: 1;
   }
-  main .isesion{
+  main .isesion {
     box-sizing: border-box;
     grid-row: 2;
   }
-  main .isesion .infoUsuario{
+  main .isesion .infoUsuario {
     justify-content: center;
   }
-  main .isesion{
+  main .isesion {
     justify-content: center;
   }
 }
-
-
