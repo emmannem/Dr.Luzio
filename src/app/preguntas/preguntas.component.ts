@@ -65,11 +65,11 @@ export class PreguntasComponent {
     // Determinar el nivel de estrés
     let nivelEstrés = '';
     if (puntuacionTotal >= 0 && puntuacionTotal <= 13) {
-      nivelEstrés = 'bajo';
+      nivelEstrés = 'Bajo';
     } else if (puntuacionTotal >= 14 && puntuacionTotal <= 26) {
-      nivelEstrés = 'moderado';
+      nivelEstrés = 'Medio';
     } else {
-      nivelEstrés = 'alto';
+      nivelEstrés = 'Alto';
     }
 
     // Imprimir la puntuación total y el nivel de estrés

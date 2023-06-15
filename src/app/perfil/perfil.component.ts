@@ -17,10 +17,6 @@ export class PerfilComponent implements OnInit {
     private servicio: PerfilService
   ) { }
 
-  @HostListener('window:beforeunload', ['$event'])
-  onBeforeUnload(event: BeforeUnloadEvent) {
-    this.cahe.clear();
-  }
 
   Nombre_Usuario: string = '';
   Apellido_Usuario: string = '';
