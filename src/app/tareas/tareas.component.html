@@ -1,97 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./tareas.component.css">
+    <title>Dr. Luzio</title>
+</head>
+
 <body>
-  <nav id="Navegacion">
     <app-navbar></app-navbar>
-  </nav>
-  <main class="container">
-    <article class="actividades">
-      {{ Array }}
-      <div
-        class="tareas"
-        *ngFor="let ac of actividadesMostrar; let i = index"
-        ngModel="actualizarIndex()"
-      >
-        <div *ngIf="i % 2 == 0">
-          <button (click)="actualizar(ac.id_actIMC)">
-            <img src="{{ ac.imagen_actIMC }}" class="button-imagen" />
-            <p class="tareas_letra-titulo">
-              Reto Ejercicio {{ i + 1 }} | {{ ac.nombre_actIMC }}
-            </p>
-            <p class="tarea_letra-descripcion">{{ ac.descripcion_actIMC }}</p>
-          </button>
-        </div>
+    <main class="container">
+        <article class="actividades">
 
-        <div *ngIf="i % 2 != 0">
-          <button (click)="actualizar(ac.id_actIMC)">
-            <img src="{{ ac.imagen_actIMC }}" class="button2-imagen" />
-            <p class="tareas2_letra-titulo">
-              Reto Ejercicio {{ i + 1 }} | {{ ac.nombre_actIMC }}
-            </p>
-            <p class="tarea2_letra-descripcion">{{ ac.descripcion_actIMC }}</p>
-          </button>
-        </div>
-      </div>
+            <div class="tareas" *ngFor="let ac of actividadesMostrar; let i = index" ngModel="actualizarIndex()">
 
-      <div
-        class="tareas2"
-        *ngFor="let ace of actividadesMostrar2; let i = index"
-      >
-        <div *ngIf="i % 2 != 0">
-          <button (click)="actualizar(ace.id_actNivelEstres)">
-            <img src="{{ ace.imagen_actNivelEstres }}" class="button-imagen" />
-            <p class="tarea_letra-descripcion">
-              {{ ace.descripcion_actNivelEstres }}
-            </p>
-            <p class="tareas_letra-titulo">
-              Reto Estrés {{ i + 1 }} | {{ ace.nombre_actNivelEstres }}
-            </p>
-          </button>
-        </div>
+                <div *ngIf="i % 2 == 0">
+                    <button (click)="actualizar(ac.id_actIMC)">
+                        <img src="{{ ac.imagen_actIMC }}" class="button-imagen" />
+                        <p class="tareas_letra-titulo">
+                            Reto Ejercicio {{ i + 1 }} | {{ac.nombre_actIMC}} + {{ac.id_actIMC}}
+                        </p>
+                        <p class="tarea_letra-descripcion">{{ ac.descripcion_actIMC }}</p>
+                    </button>
+                </div>
 
-        <div *ngIf="i % 2 == 0">
-          <button (click)="actualizar(ace.id_actNivelEstres)">
-            <img src="{{ ace.imagen_actNivelEstres }}" class="button2-imagen" />
-            <p class="tarea2_letra-descripcion">
-              {{ ace.descripcion_actNivelEstres }}
-            </p>
-            <p class="tareas2_letra-titulo">
-              Reto Estrés {{ i + 1 }} | {{ ace.nombre_actNivelEstres }}
-            </p>
-          </button>
-        </div>
-      </div>
+                <div *ngIf="i % 2 != 0">
+                    <button (click)="actualizar(ac.id_actIMC)">
+                        <img src="{{ ac.imagen_actIMC }}" class="button2-imagen" />
+                        <p class="tareas2_letra-titulo">
+                            Reto Ejercicio {{ i + 1 }} | {{ ac.nombre_actIMC }}
+                        </p>
+                        <p class="tarea2_letra-descripcion">{{ ac.descripcion_actIMC }}</p>
+                    </button>
+                </div>
+            </div>
 
-      <div
-        class="tareas3"
-        *ngFor="let ac of actividadesMostrar3; let i = index"
-      >
-        <div *ngIf="i % 2 != 0">
-          <button (click)="actualizar(ac.id_actIMC)">
-            <img src="{{ ac.imagen_actIMC }}" class="button-imagen" />
-            <p class="tareas_letra-titulo">
-              Reto Alimenticio {{ i + 1 }} | {{ ac.nombre_actIMC }}
-            </p>
-            <p class="tarea_letra-descripcion">{{ ac.descripcion_actIMC }}</p>
-          </button>
-        </div>
+            <div class="tareas2" *ngFor="let ace of actividadesMostrar2; let i = index">
+                <div *ngIf="i % 2 != 0">
+                    <button (click)="actualizar2(ace.id_actNivelEstres)">
+                        <img src="{{ ace.imagen_actNivelEstres }}" class="button-imagen" />
+                        <p class="tarea_letra-descripcion">
+                            {{ ace.descripcion_actNivelEstres }}
+                        </p>
+                        <p class="tareas_letra-titulo">
+                            Reto Estrés {{ i + 1 }} | {{ ace.nombre_actNivelEstres }}
+                        </p>
+                    </button>
+                </div>
 
-        <div *ngIf="i % 2 == 0">
-          <button (click)="actualizar(ac.id_actIMC)">
-            <img src="{{ ac.imagen_actIMC }}" class="button2-imagen" />
-            <p class="tareas2_letra-titulo">
-              Reto Alimenticio {{ i + 1 }} | {{ ac.nombre_actIMC }}
-            </p>
-            <p class="tarea2_letra-descripcion">{{ ac.descripcion_actIMC }}</p>
-          </button>
-        </div>
-      </div>
-      <div
-        *ngIf="
-          actividadesMostrar.length === 0 && actividadesMostrar2.length === 0
-        "
-        class="sin-tareas"
-      >
-        <p class="mensaje">¡Vaya!No tienes tareas pendientes</p>
-      </div>
-    </article>
-  </main>
+                <div *ngIf="i % 2 == 0">
+                    <button (click)="actualizar2(ace.id_actNivelEstres)">
+                        <img src="{{ ace.imagen_actNivelEstres }}" class="button2-imagen" />
+                        <p class="tarea2_letra-descripcion">
+                            {{ ace.descripcion_actNivelEstres }}
+                        </p>
+                        <p class="tareas2_letra-titulo">
+                            Reto Estrés {{ i + 1 }} | {{ ace.nombre_actNivelEstres }}
+                        </p>
+                    </button>
+                </div>
+            </div>
+
+            <div class="tareas3" *ngFor="let ac of actividadesMostrar3; let i = index">
+
+                <div *ngIf="i % 2 != 0">
+                    <button (click)="actualizar(ac.id_actIMC)">
+                        <img src="{{ ac.imagen_actIMC }}" class="button-imagen" />
+                        <p class="tareas_letra-titulo">
+                            Reto Alimenticio {{ i + 1 }} | {{ ac.nombre_actIMC }}
+                        </p>
+                        <p class="tarea_letra-descripcion">{{ ac.descripcion_actIMC }}</p>
+                    </button>
+                </div>
+
+                <div *ngIf="i % 2 == 0">
+                    <button (click)="actualizar(ac.id_actIMC)">
+                        <img src="{{ ac.imagen_actIMC }}" class="button2-imagen" />
+                        <p class="tareas2_letra-titulo">
+                            Reto Alimenticio {{ i + 1 }} | {{ ac.nombre_actIMC }}
+                        </p>
+                        <p class="tarea2_letra-descripcion">{{ ac.descripcion_actIMC }}</p>
+                    </button>
+                </div>
+            </div>
+            <div *ngIf="
+        actividadesMostrar.length === 0 && actividadesMostrar2.length === 0
+      " class="sin-tareas">
+                <p class="mensaje">¡Vaya!No tienes tareas pendientes</p>
+            </div>
+        </article>
+    </main>
 </body>
+
+</html>

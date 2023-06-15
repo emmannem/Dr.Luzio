@@ -22,7 +22,7 @@ export class PreguntasComponent {
 
 
     try {
-      const exito = await this.serviceAPI.asignarEstres(this.dataEstres());
+      const exito = await this.serviceAPI.asignarAPI(this.dataEstres());
       if (exito) {
         alert('Ahora Ingresa al Sistema')
         this.router.navigate(['/test-final']);

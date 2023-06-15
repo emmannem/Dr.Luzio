@@ -1,169 +1,136 @@
-.container {
-  display: grid;
-  grid-template-columns: 1fr, 3fr, 1fr;
-  grid-gap: 2px;
-  background: var(--withe);
-}
-.actividades {
-  grid-column: 2/3;
-  display: flex;
-  flex-direction: column;
-}
 
-.tareas2 button {
-  contain: content;
-  display: grid;
-  width: 40rem;
-  height: 10rem;
-  margin: 15px;
-  border-radius: 15px;
-  border: none;
-  padding: 0px 10px 0px 0px;
-  background: linear-gradient(
-    to left,
-    rgb(255, 214, 78),
-    rgb(236, 194, 55),
-    rgb(255, 190, 49),
-    rgb(247, 166, 18),
-    rgb(236, 156, 7),
-    rgb(235, 144, 9),
-    rgb(228, 144, 18)
-  );
-  cursor: pointer;
-}
+  .container{
+    display: grid;
+    grid-template-columns: 1fr, 3fr, 1fr;
+    grid-gap: 2px;
+    background-color: #ffff;
 
-.tareas button {
-  contain: content;
-  display: grid;
-  width: 40rem;
-  height: 10rem;
-  margin: 15px;
-  border-radius: 15px;
-  border: none;
-  padding: 0px 10px 0px 0px;
-  background: linear-gradient(
-    to right,
-    #057af0ff,
-    #0470dcff,
-    #0470dcff,
-    #045cb4ff,
-    #024fa1ff,
-    #01458dff,
-    #002c66ff
-  );
-  cursor: pointer;
-}
+  }
+  .actividades{
+    grid-column: 2/3;
+    display: flex;
+    flex-direction: column;
+  }
 
-.tareas3 button {
-  contain: content;
-  display: grid;
-  width: 40rem;
-  height: 10rem;
-  margin: 15px;
-  border-radius: 15px;
-  border: none;
-  padding: 0px 10px 0px 0px;
-  background: linear-gradient(
-    to right,
-    #47b347ff,
-    #32a632ff,
-    #1f991fff,
-    #118c11ff,
-    #008000ff
-  );
-  cursor: pointer;
-}
 
-@media (hover: hover) {
-  button:hover {
-    transform: translateY(-1px);
-    color: rgb(255, 255, 255);
-    box-shadow: 0 5px 4px rgba(0, 0, 0, 0.3);
-    .tareas_letra-titulo {
-      color: rgb(255, 255, 255);
+  .tareas2 button{
+    contain: content;
+    display: grid;
+    width: 40rem;
+    height: 10rem;
+    margin: 15px;
+    border-radius: 15px;
+    border: none;
+    padding: 0px 10px 0px 0px;
+    background: linear-gradient(to left, rgb(255, 214, 78) ,rgb(236, 194, 55) ,rgb(255, 190, 49), rgb(247, 166, 18), rgb(236, 156, 7), rgb(235, 144, 9), rgb(228, 144, 18));
+    cursor: pointer;
+  }
+
+  .tareas button{
+    contain: content;
+    display: grid;
+    width: 40rem;
+    height: 10rem;
+    margin: 15px;
+    border-radius: 15px;
+    border: none;
+    padding: 0px 10px 0px 0px;
+    background: linear-gradient(to right, #057af0ff ,#0470dcff ,#0470dcff, #045cb4ff, #024fa1ff, #01458dff, #002c66ff);
+    cursor: pointer;
+  }
+
+  .tareas3 button{
+    contain: content;
+    display: grid;
+    width: 40rem;
+    height: 10rem;
+    margin: 15px;
+    border-radius: 15px;
+    border: none;
+    padding: 0px 10px 0px 0px;
+    background: linear-gradient(to right, #47b347ff, #32a632ff, #1f991fff, #118c11ff,#008000ff);
+    cursor: pointer;
+  }
+
+  @media (hover: hover) {
+    button:hover {
+      transform: translateY(-1px);
+      color:rgb(255, 255, 255);
+      box-shadow: 0 5px 4px rgba(0, 0, 0, 0.3);
+      .tareas_letra-titulo{
+        color: rgb(255, 255, 255);
     }
-    .tareas2_letra-titulo {
-      color: rgb(255, 255, 255);
+    .tareas2_letra-titulo{
+        color: rgb(255, 255, 255);
+    }
     }
   }
-}
 
-.tareas_letra-titulo {
-  color: rgb(255, 255, 255);
-  font-weight: 700;
-  font-size: 25px;
-  grid-row: 1/2;
-  grid-column: 2/4;
-  text-align: right;
-  margin: 17px 20px 0px 10px;
-}
-.tareas2_letra-titulo {
-  color: rgb(255, 255, 255);
-  font-weight: 700;
-  font-size: 25px;
-  grid-row: 1/2;
-  grid-column: 1/3;
-  text-align: left;
-  margin: 22px 0px 0px 20px;
-}
+  .tareas_letra-titulo{
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    font-size: 25px;
+    grid-row: 1/2 ;
+    grid-column: 2/4;
+    text-align: right;
+    margin: 17px 20px 0px 10px;
+  }
+  .tareas2_letra-titulo{
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    font-size: 25px;
+    grid-row: 1/2 ;
+    grid-column: 1/3;
+    text-align: left;
+    margin: 22px 0px 0px 20px;
+  }
 
-.tarea_letra-descripcion {
-  margin: 0px 18px 0px 10px;
-  grid-row: 2/3;
-  grid-column: 2/4;
-  text-align: right;
-  font-weight: 530;
-  color: #ffffff;
-}
-.tarea2_letra-descripcion {
+  .tarea_letra-descripcion{
+    margin: 0px 18px 0px 10px;
+    grid-row: 2/3;
+    grid-column: 2/4;
+    text-align: right;
+    font-weight: 530;
+    color: #ffffff;
+  }
+  .tarea2_letra-descripcion{
   /* grid-row: 2/3;
     grid-column: 1/2;*/
-  position: relative;
-  font-weight: 530;
-  font-size: 15px;
-  color: #ffffff;
-  text-align: left;
-  margin: 0px 0px 0px 20px;
-}
+    position: relative;
+    font-weight: 530;
+    font-size: 15px;
+    color: #ffffff;
+    text-align: left;
+    margin: 0px 0px 0px 20px;
+  }
 
-.button-imagen {
-  border-radius: 13px 0% 0% 13px;
-  grid-row: 1/3;
-  float: left;
-  left: 100%;
-  grid-column: 1/2;
-  width: 14rem;
-  height: 10rem;
-  opacity: 70%;
-  mask-image: linear-gradient(
-    to left,
-    transparent 0%,
-    black 60%,
-    black 30%,
-    black 15%
-  );
-}
+  .button-imagen{
+    border-radius:13px 0% 0% 13px;
+    grid-row: 1/3 ;
+    float: left;
+    left: 100%;
+    grid-column: 1/2;
+    width: 14rem;
+    height: 10rem;
+    opacity: 70%;
+    mask-image: linear-gradient(to left, transparent 0%, black 60%, black 30%, black 15%);
+  }
 
-.button2-imagen {
-  border-radius: 0px 6% 6% 0px;
-  position: relative;
-  grid-row: 1/3;
-  float: right;
-  left: 10%;
-  width: 14rem;
-  height: 10rem;
-  opacity: 70%;
-  mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 60%,
-    black 30%,
-    black 15%
-  );
-}
+  .button2-imagen{
+    border-radius:0px 6% 6% 0px;
+    position: relative;
+    grid-row: 1/3 ;
+    float: right;
+    left: 10%;
+    width: 14rem;
+    height: 10rem;
+    opacity: 70%;
+    mask-image: linear-gradient(to right, transparent 0%, black 60%, black 30%, black 15%);
+  }
 
-.mensaje {
-  font-size: 30px;
-  font-weight: 600;
-  margin-top: 250px;
-}
+  .mensaje{
+    font-size: 30px;
+    font-weight: 600;
+    margin-top: 250px;
+  }
+

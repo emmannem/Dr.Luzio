@@ -1,26 +1,37 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 
 @Injectable({
-  providedIn: 'root',
+    providedIn: 'root'
 })
-export class MandarService {
-  Nivel_IMC: string = 'Normal';
-  Nivel_Estres: string = 'Bajo';
+export class MandarService{
+    Nivel_IMC: string= 'bajo';
+    Nivel_Estres: string='Bajo';
+    Id_Usuario: string="";
 
-  setIMC(valor: any) {
-    this.Nivel_IMC = valor;
-    console.log(valor);
-  }
+    setIMC(valor: any){
+        this.Nivel_IMC=valor;
+        console.log(valor)
+    }
 
-  setEstres(valor: any) {
-    this.Nivel_Estres = valor;
-  }
+    setUsuario(valor: any) {
+      this.Id_Usuario = valor;
+      console.log("Guarda", valor)
+    }
 
-  getIMC() {
-    return this.Nivel_IMC;
-  }
+    setEstres(valor: any){
+        this.Nivel_Estres=valor;
+    }
 
-  getEstres() {
-    return this.Nivel_Estres;
-  }
+    getIMC(){
+        return this.Nivel_IMC;
+    }
+
+    getEstres(){
+        return this.Nivel_Estres;
+    }
+
+    getUsuario(){
+      return this.Id_Usuario;
+    }
+
 }
