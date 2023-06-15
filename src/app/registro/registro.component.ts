@@ -45,6 +45,8 @@ export class RegistroComponent implements OnInit {
         alert('Revisa que los datos sean corectos')
 
       }
+    } else {
+      alert('Revisa tus datos')
     }
 
   }
