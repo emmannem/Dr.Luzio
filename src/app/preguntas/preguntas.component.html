@@ -1,505 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/src/app/preguntas/preguntas.component.css" />
-    <title>Test</title>
-  </head>
-  <body>
-    <main>
-      <div class="contenido">
-        <div class="preguntas" id="preguntas" name="formulario">
-          <form action="/test-final" id="formulario">
-            <div class="pregunta1">
-              <legend>
-                <span id="preguntaTexto"></span>
-                1.¿Con qué frecuencia has sentido que no puedes manejar todas
-                las cosas que tienes que hacer?
-              </legend>
-              <br />
-              <input
-                type="radio"
-                id="nunca1"
-                name="opcion"
-                value="nunca"
-                required
-              />
-              <label for="nunca1">Nunca</label>
-              <br />
-              <input
-                type="radio"
-                id="ocasional1"
-                name="opcion"
-                value="ocasional"
-                required
-              />
-              <label for="ocasional1">Ocasionalmente</label>
-              <br />
-              <input
-                type="radio"
-                id="general1"
-                name="opcion"
-                value="general"
-                required
-              />
-              <label for="general1">Generalmente</label>
-              <br />
-              <input
-                type="radio"
-                id="siempre1"
-                name="opcion"
-                value="siempre"
-                required
-              />
-              <label for="siempre1">Siempre</label>
-              <br />
-            </div>
-            <br /><br />
-            <div class="pregunta2">
-              <legend>
-                <span id="preguntaTexto"></span>
-                2. ¿Con que frecuencia has sentido que tienes demasiado que
-                hacer?
-              </legend>
-              <br />
-              <input
-                type="radio"
-                id="nunca2"
-                name="opcion2"
-                value="nunca"
-                required
-              />
-              <label for="nunca2">Nunca</label>
-              <br />
-              <input
-                type="radio"
-                id="ocasional2"
-                name="opcion2"
-                value="ocasional"
-                required
-              />
-              <label for="ocasional2">Ocasionalmente</label>
-              <br />
-              <input
-                type="radio"
-                id="general2"
-                name="opcion2"
-                value="general"
-                required
-              />
-              <label for="general2">Generalmente</label>
-              <br />
-              <input
-                type="radio"
-                id="siempre2"
-                name="opcion2"
-                value="siempre"
-                required
-              />
-              <label for="siempre2">Siempre</label>
-              <br />
-            </div>
-            <br /><br />
-            <div class="pregunta3">
-              <legend>
-                <span id="preguntaTexto"></span>
-                3. ¿Con qué frecuencia has sentido que no puedes lidiar con
-                todos los problemas y preocupaciones que tienes en tu vida?
-              </legend>
-              <br />
-              <input
-                type="radio"
-                id="nunca3"
-                name="opcion3"
-                value="nunca"
-                required
-              />
-              <label for="nunca3">Nunca</label>
-              <br />
-              <input
-                type="radio"
-                id="ocasional3"
-                name="opcion3"
-                value="ocasional"
-                required
-              />
-              <label for="ocasional3">Ocasionalmente</label>
-              <br />
-              <input
-                type="radio"
-                id="general3"
-                name="opcion3"
-                value="general"
-                required
-              />
-              <label for="general3">Generalmente</label>
-              <br />
-              <input
-                type="radio"
-                id="siempre3"
-                name="opcion3"
-                value="siempre"
-                required
-              />
-              <label for="siempre3">Siempre</label>
-              <br />
-            </div>
-            <br /><br />
-            <div class="pregunta4">
-              <legend>
-                <span id="preguntaTexto"></span>
-                4. ¿Con qué frecuencia has sentido que las situaciones en tu
-                vida están fuera de tu control?
-              </legend>
-              <br />
-              <input
-                type="radio"
-                id="nunca4"
-                name="opcion4"
-                value="nunca"
-                required
-              />
-              <label for="nunca4">Nunca</label>
-              <br />
-              <input
-                type="radio"
-                id="ocasional4"
-                name="opcion4"
-                value="ocasional"
-                required
-              />
-              <label for="ocasional4">Ocasionalmente</label>
-              <br />
-              <input
-                type="radio"
-                id="general4"
-                name="opcion4"
-                value="general"
-                required
-              />
-              <label for="general4">Generalmente</label>
-              <br />
-              <input
-                type="radio"
-                id="siempre4"
-                name="opcion4"
-                value="siempre"
-                required
-              />
-              <label for="siempre4">Siempre</label>
-              <br />
-            </div>
-            <br /><br />
-            <div class="pregunta5">
-              <legend>
-                <span id="preguntaTexto"></span>
-                5. ¿Con qué frecuencia has sentido que las cosas no van según lo
-                planeado?
-              </legend>
-              <br />
-              <input
-                type="radio"
-                id="nunca5"
-                name="opcion5"
-                value="nunca"
-                required
-              />
-              <label for="nunca5">Nunca</label>
-              <br />
-              <input
-                type="radio"
-                id="ocasional5"
-                name="opcion5"
-                value="ocasional"
-                required
-              />
-              <label for="ocasional5">Ocasionalmente</label>
-              <br />
-              <input
-                type="radio"
-                id="general5"
-                name="opcion5"
-                value="general"
-                required
-              />
-              <label for="general5">Generalmente</label>
-              <br />
-              <input
-                type="radio"
-                id="siempre5"
-                name="opcion5"
-                value="siempre"
-                required
-              />
-              <label for="siempre5">Siempre</label>
-              <br />
-            </div>
-            <br /><br />
-            <div class="pregunta6">
-              <legend>
-                <span id="preguntaTexto"></span>
-                6. ¿Con qué frecuencia has sentido que tienes más problemas de
-                los que puedes manejar?
-              </legend>
-              <br />
-              <input
-                type="radio"
-                id="nunca6"
-                name="opcion6"
-                value="nunca"
-                required
-              />
-              <label for="nunca6">Nunca</label>
-              <br />
-              <input
-                type="radio"
-                id="ocasional6"
-                name="opcion6"
-                value="ocasional"
-                required
-              />
-              <label for="ocasional6">Ocasionalmente</label>
-              <br />
-              <input
-                type="radio"
-                id="general6"
-                name="opcion6"
-                value="general"
-                required
-              />
-              <label for="general6">Generalmente</label>
-              <br />
-              <input
-                type="radio"
-                id="siempre6"
-                name="opcion6"
-                value="siempre"
-                required
-              />
-              <label for="siempre6">Siempre</label>
-              <br />
-            </div>
-            <br /><br />
-            <div class="pregunta7">
-              <legend>
-                <span id="preguntaTexto"></span>
-                7. ¿Con qué frecuencia has sentido que estás sorprendido por
-                eventos que no esperabas?
-              </legend>
-              <br />
-              <input
-                type="radio"
-                id="nunca7"
-                name="opcion7"
-                value="nunca"
-                required
-              />
-              <label for="nunca7">Nunca</label>
-              <br />
-              <input
-                type="radio"
-                id="ocasional7"
-                name="opcion7"
-                value="ocasional"
-                required
-              />
-              <label for="ocasional7">Ocasionalmente</label>
-              <br />
-              <input
-                type="radio"
-                id="general7"
-                name="opcion7"
-                value="general"
-                required
-              />
-              <label for="general7">Generalmente</label>
-              <br />
-              <input
-                type="radio"
-                id="siempre7"
-                name="opcion7"
-                value="siempre"
-                required
-              />
-              <label for="siempre7">Siempre</label>
-              <br />
-            </div>
-            <br /><br />
-            <div class="pregunta8">
-              <legend>
-                <span id="preguntaTexto"></span>
-                8. ¿Con qué frecuencia has sentido que no puedes hacer frente a
-                todos los eventos y situaciones estresantes en tu vida?
-              </legend>
-              <br />
-              <input
-                type="radio"
-                id="nunca8"
-                name="opcion8"
-                value="nunca"
-                required
-              />
-              <label for="nunca8">Nunca</label>
-              <br />
-              <input
-                type="radio"
-                id="ocasional8"
-                name="opcion8"
-                value="ocasional"
-                required
-              />
-              <label for="ocasional8">Ocasionalmente</label>
-              <br />
-              <input
-                type="radio"
-                id="general8"
-                name="opcion8"
-                value="general"
-                required
-              />
-              <label for="general8">Generalmente</label>
-              <br />
-              <input
-                type="radio"
-                id="siempre8"
-                name="opcion8"
-                value="siempre"
-                required
-              />
-              <label for="siempre8">Siempre</label>
-              <br />
-            </div>
-            <br /><br />
-            <div class="pregunta9">
-              <legend>
-                <span id="preguntaTexto"></span>
-                9. ¿Con qué frecuencia has sentido que las cosas no van bien en
-                tu vida?
-              </legend>
-              <br />
-              <input
-                type="radio"
-                id="nunca9"
-                name="opcion9"
-                value="nunca"
-                required
-              />
-              <label for="nunca9">Nunca</label>
-              <br />
-              <input
-                type="radio"
-                id="ocasional9"
-                name="opcion9"
-                value="ocasional"
-                required
-              />
-              <label for="ocasional9">Ocasionalmente</label>
-              <br />
-              <input
-                type="radio"
-                id="general9"
-                name="opcion9"
-                value="general"
-                required
-              />
-              <label for="general9">Generalmente</label>
-              <br />
-              <input
-                type="radio"
-                id="siempre9"
-                name="opcion9"
-                value="siempre"
-                required
-              />
-              <label for="siempre9">Siempre</label>
-              <br />
-            </div>
-            <br /><br />
-            <div class="pregunta10">
-              <legend>
-                <span id="preguntaTexto"></span>
-                10. ¿Con qué frecuencia has sentido que las cosas van mal o que
-                no puedes controlar las cosas de tu vida?
-              </legend>
-              <br />
-              <input
-                type="radio"
-                id="nunca10"
-                name="opcion10"
-                value="nunca"
-                required
-              />
-              <label for="nunca10">Nunca</label>
-              <br />
-              <input
-                type="radio"
-                id="ocasional10"
-                name="opcion10"
-                value="ocasional"
-                required
-              />
-              <label for="ocasional10">Ocasionalmente</label>
-              <br />
-              <input
-                type="radio"
-                id="general10"
-                name="opcion10"
-                value="general"
-                required
-              />
-              <label for="general10">Generalmente</label>
-              <br />
-              <input
-                type="radio"
-                id="siempre10"
-                name="opcion10"
-                value="siempre"
-                required
-              />
-              <label for="siempre10">Siempre</label>
-              <br />
-            </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
+  <!-- <link rel="stylesheet" href="/src/app/preguntas/preguntas.component.css" /> -->
+  <title>Test</title>
+</head>
+
+<body>
+  <main>
+    <div class="contenido">
+      <div class="preguntas" id="preguntas" name="formulario">
+        <form (ngSubmit)="submitForm()" #formulario="ngForm">
+          <div class="pregunta1">
+            <legend>
+              <span id="preguntaTexto"></span>
+              1. ¿Con qué frecuencia has sentido que no puedes manejar todas las cosas que tienes que hacer?
+            </legend>
             <br />
-            <input
-              type="submit"
-              id="btn"
-              name="btn"
-              value="Siguiente"
-              routerLink="/test-final"
-            />
-          </form>
-          <script>
-            (function () {
-              var formulario = document.getElementsByName("formulario")[0],
-                elementos = formulario.elements,
-                boton = document.getElementById("siguiente");
+            <input type="radio" name="opcion1" value="nunca" ngModel required />
+            <label for="nunca1">Nunca</label>
+            <br />
+            <input type="radio" name="opcion1" value="ocasional" ngModel required />
+            <label for="ocasional1">Ocasionalmente</label>
+            <br />
+            <input type="radio" name="opcion1" value="general" ngModel required />
+            <label for="general1">Generalmente</label>
+            <br />
+            <input type="radio" name="opcion1" value="siempre" ngModel required />
+            <label for="siempre1">Siempre</label>
+            <br />
+          </div>
+          <br /><br />
+          <div class="pregunta2">
+            <legend>
+              <span id="preguntaTexto"></span>
+              2. ¿Con qué frecuencia has sentido que no puedes concentrarte en lo que estás haciendo?
+            </legend>
+            <br />
+            <input type="radio" name="opcion2" value="nunca" ngModel required />
+            <label for="nunca2">Nunca</label>
+            <br />
+            <input type="radio" name="opcion2" value="ocasional" ngModel required />
+            <label for="ocasional2">Ocasionalmente</label>
+            <br />
+            <input type="radio" name="opcion2" value="general" ngModel required />
+            <label for="general2">Generalmente</label>
+            <br />
+            <input type="radio" name="opcion2" value="siempre" ngModel required />
+            <label for="siempre2">Siempre</label>
+            <br />
+          </div>
+          <br /><br />
+          <div class="pregunta3">
+            <legend>
+              <span id="preguntaTexto"></span>
+              3. ¿Con qué frecuencia has sentido que no tienes suficiente tiempo para ti mismo/a?
+            </legend>
+            <br />
+            <input type="radio" name="opcion3" value="nunca" ngModel required />
+            <label for="nunca3">Nunca</label>
+            <br />
+            <input type="radio" name="opcion3" value="ocasional" ngModel required />
+            <label for="ocasional3">Ocasionalmente</label>
+            <br />
+            <input type="radio" name="opcion3" value="general" ngModel required />
+            <label for="general3">Generalmente</label>
+            <br />
+            <input type="radio" name="opcion3" value="siempre" ngModel required />
+            <label for="siempre3">Siempre</label>
+            <br />
+          </div>
+          <br /><br />
+          <div class="pregunta4">
+            <legend>
+              <span id="preguntaTexto"></span>
+              4. ¿Con qué frecuencia has sentido que no puedes disfrutar de las cosas que solías disfrutar?
+            </legend>
+            <br />
+            <input type="radio" name="opcion4" value="nunca" ngModel required />
+            <label for="nunca4">Nunca</label>
+            <br />
+            <input type="radio" name="opcion4" value="ocasional" ngModel required />
+            <label for="ocasional4">Ocasionalmente</label>
+            <br />
+            <input type="radio" name="opcion4" value="general" ngModel required />
+            <label for="general4">Generalmente</label>
+            <br />
+            <input type="radio" name="opcion4" value="siempre" ngModel required />
+            <label for="siempre4">Siempre</label>
+            <br />
+          </div>
+          <br /><br />
+          <div class="pregunta5">
+            <legend>
+              <span id="preguntaTexto"></span>
+              5. ¿Con qué frecuencia has sentido que no puedes tomar decisiones importantes en tu vida?
+            </legend>
+            <br />
+            <input type="radio" name="opcion5" value="nunca" ngModel required />
+            <label for="nunca5">Nunca</label>
+            <br />
+            <input type="radio" name="opcion5" value="ocasional" ngModel required />
+            <label for="ocasional5">Ocasionalmente</label>
+            <br />
+            <input type="radio" name="opcion5" value="general" ngModel required />
+            <label for="general5">Generalmente</label>
+            <br />
+            <input type="radio" name="opcion5" value="siempre" ngModel required />
+            <label for="siempre5">Siempre</label>
+            <br />
+          </div>
+          <br /><br />
+          <div class="pregunta6">
+            <legend>
+              <span id="preguntaTexto"></span>
+              6. ¿Con qué frecuencia has sentido que no puedes controlar la cantidad de estrés en tu vida?
+            </legend>
+            <br />
+            <input type="radio" name="opcion6" value="nunca" ngModel required />
+            <label for="nunca6">Nunca</label>
+            <br />
+            <input type="radio" name="opcion6" value="ocasional" ngModel required />
+            <label for="ocasional6">Ocasionalmente</label>
+            <br />
+            <input type="radio" name="opcion6" value="general" ngModel required />
+            <label for="general6">Generalmente</label>
+            <br />
+            <input type="radio" name="opcion6" value="siempre" ngModel required />
+            <label for="siempre6">Siempre</label>
+            <br />
+          </div>
+          <br /><br />
+          <div class="pregunta7">
+            <legend>
+              <span id="preguntaTexto"></span>
+              7. ¿Con qué frecuencia has sentido que no puedes resolver problemas importantes en tu vida?
+            </legend>
+            <br />
+            <input type="radio" name="opcion7" value="nunca" ngModel required />
+            <label for="nunca7">Nunca</label>
+            <br />
+            <input type="radio" name="opcion7" value="ocasional" ngModel required />
+            <label for="ocasional7">Ocasionalmente</label>
+            <br />
+            <input type="radio" name="opcion7" value="general" ngModel required />
+            <label for="general7">Generalmente</label>
+            <br />
+            <input type="radio" name="opcion7" value="siempre" ngModel required />
+            <label for="siempre7">Siempre</label>
+            <br />
+          </div>
+          <br /><br />
+          <div class="pregunta8">
+            <legend>
+              <span id="preguntaTexto"></span>
+              8. ¿Con qué frecuencia has sentido que no puedes alcanzar tus metas en la vida?
+            </legend>
+            <br />
+            <input type="radio" name="opcion8" value="nunca" ngModel required />
+            <label for="nunca8">Nunca</label>
+            <br />
+            <input type="radio" name="opcion8" value="ocasional" ngModel required />
+            <label for="ocasional8">Ocasionalmente</label>
+            <br />
+            <input type="radio" name="opcion8" value="general" ngModel required />
+            <label for="general8">Generalmente</label>
+            <br />
+            <input type="radio" name="opcion8" value="siempre" ngModel required />
+            <label for="siempre8">Siempre</label>
+            <br />
+          </div>
+          <br /><br />
+          <div class="pregunta9">
+            <legend>
+              <span id="preguntaTexto"></span>
+              9. ¿Con qué frecuencia has sentido que las cosas no van bien en
+              tu vida?
+            </legend>
+            <br />
+            <input type="radio" name="opcion9" value="nunca" ngModel required />
+            <label for="nunca9">Nunca</label>
+            <br />
+            <input type="radio" name="opcion9" value="ocasional" ngModel required />
+            <label for="ocasional9">Ocasionalmente</label>
+            <br />
+            <input type="radio" name="opcion9" value="general" ngModel required />
+            <label for="genera9">Generalmente</label>
+            <br />
+            <input type="radio" name="opcion9" value="siempre" ngModel required />
+            <label for="siempre9">Siempre</label>
+            <br />
+          </div>
+          <br /><br />
+          <div class="pregunta10">
+            <legend>
+              <span id="preguntaTexto"></span>
+              10. ¿Con qué frecuencia has sentido que las cosas van mal o que
+              no puedes controlar las cosas de tu vida?
+            </legend>
+            <br />
+            <input type="radio" name="opcion10" value="nunca" ngModel required />
+            <label for="nunca10">Nunca</label>
+            <br />
+            <input type="radio" name="opcion10" value="ocasional" ngModel required />
+            <label for="ocasional10">Ocasionalmente</label>
+            <br />
+            <input type="radio" name="opcion10" value="general" ngModel required />
+            <label for="general10">Generalmente</label>
+            <br />
+            <input type="radio" name="opcion10" value="siempre" ngModel required />
+            <label for="siempre10">Siempre</label>
+            <br />
+          </div>
+          <br /><br />
 
-              var validarRadio = function (e) {
-                if (formulario.opcion.checked == true) {
-                } else {
-                  alert("Debe seleccionar una opción");
-                  e.preventDefault();
-                }
-              };
-
-              var validar = function (e) {
-                validarRadio(e);
-              };
-
-              formulario.addEventListener("submit", validar);
-            });
-          </script>
-        </div>
+          <button type="submit" [disabled]="!formulario.valid" *ngIf="formulario.valid" id="btn"
+            name="btn">Enviar</button>
+        </form>
       </div>
-    </main>
-  </body>
-  <script src="/src/app/preguntas/preguntas.component.ts"></script>
+    </div>
+  </main>
+
+</body>
+<script src="/src/app/preguntas/preguntas.component.ts"></script>
+
 </html>
